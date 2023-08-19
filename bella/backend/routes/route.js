@@ -2,8 +2,8 @@
 import express from "express";
   
 // import function from controller
-import { showProducts, showProductById, createProduct, updateProduct, deleteProduct } from "../controllers/controller.js";
-  
+import { showProducts, showProductById, createProduct, updateProduct } from "../controllers/controller.js";
+ 
 // init express router
 const router = express.Router();
   
@@ -36,7 +36,7 @@ router.post('/products', createProduct);
 router.put('/products/:id', updateProduct);
   
 // Delete Product
-router.delete('/products/:id', deleteProduct);
+
   
 // export default router
 export default router;

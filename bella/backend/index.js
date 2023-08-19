@@ -30,7 +30,7 @@ app.post('/products', (req, res) => {
     const newProduct = req.body;
     products.push(newProduct);
     res.status(201).json(newProduct);
-  });
+  }); 
 
 
     // Start the server after connecting to the database

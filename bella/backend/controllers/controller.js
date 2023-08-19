@@ -52,13 +52,22 @@ export const updateProduct = (req, res) => {
 }
   
 // Delete Product
-export const deleteProduct = (req, res) => {
-    const id = req.params.id;
-    deleteProductById(id, (err, results) => {
-        if (err){
-            res.send(err);
-        }else{
-            res.json(results);
-        }
-    });
-}
+// export const deleteProduct = (req, res) => {
+//     const id = req.params.id;
+//     deleteProductById(id, (err, results) => {
+//         if (err){
+//             res.send(err);
+//         }else{
+//             res.json(results);
+//         }
+//     });
+// }
+
+// db.connect(function(err) {
+//     if (err) throw err;
+//     var sql = "DELETE FROM products WHERE id = ?";
+//     con.query(sql, function (err, result) {
+//       if (err) throw err;
+//       console.log("Number of records deleted: " + result.affectedRows);
+//     });
+// });
