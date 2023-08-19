@@ -250,12 +250,21 @@
     <!-- End Carousel -->
 
 
-
+    
+        
+         
+            
                 <!-- Slide show -->
+                
+                
 
                 <div id="carouselExampleIndicators" class="carousel slide  " data-bs-ride="carousel">
 
-<div id="carouselExampleIndicators" class="carousel slide mb-5 mt-5" data-bs-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel">
+
+  <h2 style="margin-top: 5rem; margin-bottom: 2rem !important;">REAL PEOPLE, REAL REVIEWS</h2>
+  <p
+  style="font-size: 40px; color:   gold;">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</p>
 
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -266,48 +275,62 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
 
-      <h3 style="margin-right: 350px;">Selena Gomez</h3>
+      <h3 style="color:#484848 ; margin-right: 23rem;" class="line-heading">Selena Gomez</h3>
       
-      <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem;">
+      <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem; ">
                   Smooth and thick on the skin, good deep hydration, not leaving
                   a trace of greece behind. I love it! My skin is very dry,
                   itchy with ashy elbows dry finger nails, fruity buns with a
                   bit of a itch and this serum does a perfect job of deep
                   hydration on my skin. Feels thick, smooth. I highly
-                  recommend!!  
+                  recommend!! 
+                  <span style="margin: 4rem;">Customer</span> 
       </p>
       
-                  
+      
     </div>
     <div class="carousel-item">
-      <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem;">  
+
+       <h3  style="color:#484848 ; margin-right: 23rem;" class="line-heading">Ariana Grande </h3>
+
+      <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem;"> 
+         
 
                  The online store has a great layout. I can search by brand,
                   skin-type and category which is makes navigating so easy!!
                   They carry more brands than other Korean skincare online
                   stores. Products are well-described and I love the blogs too!
-                  Delivery is fast.   
+                  Delivery is fast. I most definitely shop here again.
+                  <span style="margin: 4rem;">Customer</span> 
       </p>
+      
     </div>
     <div class="carousel-item">
+      <h3  style="color:#484848 ; margin-right: 23rem;" class="line-heading">Cardi Belcalis</h3>
       <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem;">  
+         
 
                   Ran out of my Korean skincare and Skin Theory had a selection
                   (& more) of what I was looking for. Price of products are
                   affordable. Delivery was very quick and was pleasantly
                   surprised at the generosity of samples. Will definitely return
-                  to order more.  
+                  to order more. This products leave my skin even more radiant.  
+                  <span style="margin: 4rem;">Customer</span> 
       </p>
+    
     </div>
         <div class="carousel-item">
+          <h3 style="color:#484848 ; margin-right: 23rem;" class="line-heading">Nicki Minaj</h3>
       <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem;">  
 
                   First time online shopping with Skin Theory was great! Wide
                   range of k-beauty products, very user friendly and simple
                   shopping process, and loved the many lovely free samples that
                   came along with my purchases. Will definitely be using Skin
-                  Theory again for my next k-beauty fix!  
+                  Theory again for my next k-beauty fix! I am just amazed overall!  
+                  <span style="margin: 4rem;">Customer</span> 
       </p>
+
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -346,6 +369,7 @@ export default {
   list-style: none;
   font-family: "Poppins", sans-serif;
 }
+
 
 .anchor-button{
   margin-left: 40rem !important;
@@ -790,13 +814,13 @@ form {
   flex-direction: column;
   margin: 20px auto;
 }
-.heading h1 {
+.heading h3 {
   font-size: 50px;
   color: black;
   margin-bottom: 20px;
   position: relative;
 }
-.heading h1::after {
+.heading h3::after {
   content: "";
   margin: 0 auto;
   background-color: #333333;
@@ -809,11 +833,11 @@ form {
 .line-heading::after {
   content: "";
   margin: 0 auto;
-  background-color: #333333;
+  background-color: #faaa94;
   position: absolute;
   display: block;
   height: 4px;
-  width: 31%;
+  width: 18%;
   position: relative;
 }
 
@@ -1140,7 +1164,7 @@ h3 {
 
 .section-title {
   text-align: center !important;
-  margin-bottom: 60px !important;
+  margin-top: 10rem !important;
 }
 
 .section-borders span {
@@ -1179,7 +1203,7 @@ h3 {
 
 .single-testimonial-item {
   position: relative !important;
-  box-shadow: 0 0 2px #dadfd3 !important;
+  box-shadow: 0 0 6px #dadfd3 !important;
   padding: 20px !important;
   font-style: italic !important;
   padding-left: 85px !important;
@@ -1193,7 +1217,7 @@ h3 {
   left: 20px !important;
   top: 50% !important;
   font-size: 20px !important;
-  color: #333 !important;
+  color: #8F7E18 !important;
   line-height: 30px !important;
   margin-top: -15px !important;
 }
