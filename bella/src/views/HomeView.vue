@@ -45,7 +45,7 @@
     </section>
 
     <div class="container">
-      <h2
+      <h2 class="spot-light"
         style="
           margin: 1rem;
           letter-spacing: 1px;
@@ -262,8 +262,8 @@
 
 <div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel">
 
-  <h2 style="margin-top: 5rem; margin-bottom: 2rem !important;">REAL PEOPLE, REAL REVIEWS</h2>
-  <p
+  <h2 class="testi-review" style="margin-top: 5rem; margin-bottom: 8px !important;">REAL PEOPLE, REAL REVIEWS</h2>
+  <p class="stars"
   style="font-size: 40px; color:   gold;">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</p>
 
   <div class="carousel-indicators">
@@ -361,6 +361,83 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
 
+@media screen and (max-width: 500px) {
+  a.anchor-button{
+    margin-left: 0% !important;
+    margin-left: 140px !important;
+    margin-top: 750px !important;
+    padding: 0% !important;
+
+  }
+  }
+
+  @media screen and (max-width: 300px) {
+  a.anchor-button{
+    margin-left: 0% !important;
+    margin-left: 36px !important;
+    margin-top: 750px !important;
+    padding: 0% !important;
+
+  }
+  }
+
+  @media screen and (max-width: 600px) {
+  a.anchor-button{
+    margin-left: 0% !important;
+    margin-left: 50px !important;
+    margin-top: 750px !important;
+    padding: 0% !important;
+  }
+  }
+
+  @media screen and (max-width: 300px) {
+    .single-testimonial-item{
+      width: 100% !important;
+      font-size: 15px;
+      padding: 0% !important;
+      margin: 0% !important;
+    }
+  }
+
+
+
+    @media screen and (max-width: 300px){
+      h3.line-heading{
+        font-size: 22px;
+        margin: 0% !important;
+        text-align: center !important;
+      }
+
+      h3.line-heading::after{
+        width: 55%;
+      }
+      h2.line-head{
+        font-size: 19px !important;
+      }
+     
+      .spot-light{
+        font-size: 20px !important;
+      }
+      .testi-review{
+        font-size: 21px !important;
+      }
+  
+      .stars{
+        font-size: 29px !important;
+        margin-top: 0px !important;
+      }
+
+      h2 span{
+        font-size: 21px !important;
+      }
+    
+
+    .carousel-item{
+      width: 100% !important;
+      font-size: 10px !important;
+    }
+  }
+
 * {
   margin: 0;
   padding: 0;
@@ -372,8 +449,8 @@ export default {
 
 
 .anchor-button{
-  margin-left: 40rem !important;
-  margin-top: 39rem !important;
+  margin-left: 49rem !important;
+  margin-top: 50rem !important;
 }
 .btn{
   color: white;

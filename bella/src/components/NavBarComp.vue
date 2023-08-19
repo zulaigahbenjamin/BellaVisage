@@ -36,7 +36,7 @@
             <router-link to="/contact">𝐂𝐨𝐧𝐭𝐚𝐜𝐭</router-link>
           </li>
           <li id="slideInLeft">
-            <router-link to="/log in">𝐋𝐨𝐠 𝐈𝐧</router-link>
+            <router-link to="/login">𝐋𝐨𝐠 𝐈𝐧</router-link>
           </li>
         </ul>
       </div>

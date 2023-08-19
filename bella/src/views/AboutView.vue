@@ -12,13 +12,13 @@
     </div>
     <div class="about-content">
       <h2>About Us</h2>
-      <p><span>𝑩𝒆𝒍𝒍𝒂 𝑽𝒊𝒔𝒂𝒈𝒆</span> was first Established in South Korea in 2023, selling lasting products never to be seen before.Recreating the past with the future, eventing our unique products with our signature logo representing it.</p>
+      <p><span>𝑩𝒆𝒍𝒍𝒂 𝑽𝒊𝒔𝒂𝒈𝒆</span> was first Established in South Korea in 2023, selling lasting products never to be seen before.Recreating the past with the future, eventing our unique products with our signature logo representing it. We only strive towards success.</p>
 
-     <p><span>𝑩𝒆𝒍𝒍𝒂 𝑽𝒊𝒔𝒂𝒈𝒆</span> we believe beauty has no boundaries, introducing ground braking formulas with our own secret ingredients from South korea 선조.</p>
+     <p><span>𝑩𝒆𝒍𝒍𝒂 𝑽𝒊𝒔𝒂𝒈𝒆</span> we believe beauty has no boundaries, introducing ground braking formulas with our own secret ingredients from South korea and gotten from 선조.</p>
     
-      <p><span>𝑩𝒆𝒍𝒍𝒂 𝑽𝒊𝒔𝒂𝒈𝒆</span> balances our products with the most natural earth friendly ingredients but yet still luxurious as ever leaving the skin moisturized.</p>
+      <p><span>𝑩𝒆𝒍𝒍𝒂 𝑽𝒊𝒔𝒂𝒈𝒆</span> balances our products with the most natural earth friendly, natural ingredients but yet still luxurious as ever leaving the skin moisturized and glowing.</p>
     
-      <p>We strongly stand firm with quality over quantity as we believe beauty takes time to morph into what we have today and that is <span>𝑩𝒆𝒍𝒍𝒂 𝑽𝒊𝒔𝒂𝒈𝒆</span>.</p>
+      <p>We strongly stand firm with quality over quantity as we believe beauty takes time to morph into what we have today and that is the one and only It's <span>𝑩𝒆𝒍𝒍𝒂 𝑽𝒊𝒔𝒂𝒈𝒆</span>.</p>
       <a href="/html/product.html" class="read-more">Korean Skin Care</a>
     </div>
   </section>
@@ -35,6 +35,23 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
 
+
+@media screen and (max-width: 300px){
+
+
+.heading h1{
+font-size: 30px !important;
+}
+p{
+  font-size: 14px !important;
+}
+.about-content .read-more{
+  padding: 2px !important;
+}
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -45,7 +62,7 @@
 }
 
 h1 {
-  font-size: 50px;
+  /* font-size: 50px; */
   line-height: 64px;
   color: black;
   font-weight: 500;
@@ -102,7 +119,7 @@ p {
   margin: 20px auto !important;
 }
 .heading h1 {
-  font-size: 50px !important;
+  font-size: 50px;
   color: black !important;
   margin-bottom: 20px !important;
   position: relative !important;
@@ -150,7 +167,7 @@ p {
 }
 
 .about-content p {
-  font-size: 18px !important;
+  font-size: 20px;
   text-align: start !important;
 
 
@@ -159,7 +176,7 @@ p {
 .about-content .read-more {
   display: inline-block !important;
   font-size: 20px !important;
-  padding: 7px !important;
+  padding: 7px;
   text-decoration: none !important;
   border-radius: 20px !important;
   transition: 0.3s ease !important;

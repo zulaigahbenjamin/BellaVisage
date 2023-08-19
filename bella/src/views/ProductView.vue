@@ -130,6 +130,15 @@ export default {
 
 <style scoped>
 
+@media screen and (max-width: 300px){
+.d-block{
+  width: 100% !important;
+  height: 200px !important;
+  padding: 20px !important;
+}
+
+}
+
 
 
 /* Slide Prods */

@@ -31,7 +31,7 @@
               <form action="https://i.postimg.cc/HsbqzZy5/Bv-1.png" method="POST">
                 <h2
                   id="slideInLeft"
-                  class="card p-3 heading-text pink-bg border-2 text-center"
+                  class="card p-1 heading-text pink-bg border-2 text-center"
                   style="border: none"
                 >
                   Contact Me!
@@ -88,6 +88,12 @@
   
   
   <style scoped>
+  @media screen and (max-width: 300px){
+    p{
+      font-size: 13px ;
+      padding: 5px;
+    }
+  }
   *{
     font-family: "Poppins";
   }
