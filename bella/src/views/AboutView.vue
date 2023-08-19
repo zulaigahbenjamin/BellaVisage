@@ -46,7 +46,7 @@ p{
   font-size: 14px !important;
 }
 .about-content .read-more{
-  padding: 2px !important;
+  padding: 4px !important;
 }
 }
 
@@ -176,7 +176,7 @@ p {
 .about-content .read-more {
   display: inline-block !important;
   font-size: 20px !important;
-  padding: 7px;
+  padding: 5px !important;
   text-decoration: none !important;
   border-radius: 20px !important;
   transition: 0.3s ease !important;
