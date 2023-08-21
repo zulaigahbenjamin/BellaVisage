@@ -1,30 +1,47 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+const miniUrl = 'https://zulaigahsapi.onrender.com/'
 
 export default createStore({
   state: {
+    products: null,
+    product: null,
   },
   getters: {
   },
   mutations: {
     ADD_PRODUCT(state, newProduct) {
       state.products.push(newProduct);
-    }
+    },
+    SET_PRODUCTS(state, productData) {
+      state.products = productData;
+    },
   },
   actions: {
+    async fetchProducts(context) {
+      try {
+        let response = await fetch(`${miniUrl}products`);
+        console.log(response);
+        let { results } = await response.json();
+        console.log(results);
+        context.commit("SET_PRODUCTS", results);
+      } catch (error) {
+        alert(error.message);
+      }
+    },
     fetchDataFromServer() {
-      fetch("http://localhost:5002/")
-        .then(response => response.json())
+      fetch("https://zulaigahsapi.onrender.com/")
+        .then(response => response.json())  
         .then(data => console.log(data))
         .catch(error => console.error(error));
     },
     fetchProductById(context, productId) {
-      fetch(`http://localhost:5002/products/${productId}`)
+      fetch(`https://zulaigahsapi.onrender.com/products/${productId}`)
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error(error));
     },
     addProduct(context, newProduct) {
-      fetch("http://localhost:5002/", {
+      fetch("https://zulaigahsapi.onrender.com/products", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -33,26 +50,13 @@ export default createStore({
       })
       .then(response => response.json())
       .then(data => {
-        context.commit('ADD_PRODUCT', data); // Commit mutation to update state with the new product
+        context.commit('ADD_PRODUCT', data);
       })
       .catch(error => console.error(error));
     }
     
 
-    // addProduct(context, newProduct) {
-    //   fetch("http://localhost:5002/products", {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(newProduct)
-    //   })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     context.commit('ADD_PRODUCT', data); // Commit mutation to update state with the new product
-    //   })
-    //   .catch(error => console.error(error));
-    // }
+
   },
   modules: {
   }
