@@ -1,13 +1,20 @@
 <template>
   <div class="home">
     <section id="hero">
-      <a class="anchor-button"  href="/html/product.html"><button style="background-color: #d78976 !important; border-radius: 0% !important;padding: 10px !important; align-items: center !important; text-align: center !important;" class="btn btn p-2 px-4">
-
+      <a class="anchor-button" href="#"
+        ><button
+          style="
+            background-color: #d78976 !important;
+            border-radius: 0% !important;
+            padding: 10px !important;
+            align-items: center !important;
+            text-align: center !important;
+          "
+          class="btn btn p-2 px-4"
+        >
           Shop Our Collection
-
-        </button></a>
-
-        
+        </button></a
+      >
     </section>
 
     <div class="category" id="category">
@@ -33,8 +40,10 @@
           "
         >
           <span style="color: #484848">Shop OUR </span>
+      
           <span style="color: #ecc3b3">BEST SELLERS</span>
         </h2>
+        <productCardVue/>
       </div>
     </div>
 
@@ -45,7 +54,8 @@
     </section>
 
     <div class="container">
-      <h2 class="spot-light"
+      <h2
+        class="spot-light"
         style="
           margin: 1rem;
           letter-spacing: 1px;
@@ -179,8 +189,7 @@
     </div>
     <!-- <footer class="page-footer"> -->
 
-
-          <!-- Carousel -->
+    <!-- Carousel -->
 
     <!-- <div class="section-padding">
       <div class="container">
@@ -249,194 +258,245 @@
 
     <!-- End Carousel -->
 
+    <!-- Slide show -->
 
-    
-        
-         
-            
-                <!-- Slide show -->
-                
-                
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide mb-5"
+        data-bs-ride="carousel"
+      >
+        <h2
+          class="testi-review"
+          style="margin-top: 5rem; margin-bottom: 8px !important"
+        >
+          REAL PEOPLE, REAL REVIEWS
+        </h2>
+        <p class="stars" style="font-size: 40px; color: gold">
+          &#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
+        </p>
 
-                <div id="carouselExampleIndicators" class="carousel slide  " data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h3
+              style="color: #484848; margin-right: 23rem"
+              class="line-heading"
+            >
+              Selena Gomez
+            </h3>
 
-<div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel">
+            <p
+              class="single-testimonial-item w-70 mx-auto"
+              style="height: 160px; width: 46rem"
+            >
+              Smooth and thick on the skin, good deep hydration, not leaving a
+              trace of greece behind. I love it! My skin is very dry, itchy with
+              ashy elbows dry finger nails, fruity buns with a bit of a itch and
+              this serum does a perfect job of deep hydration on my skin. Feels
+              thick, smooth. I highly recommend!!
+              <span style="margin: 4rem">Customer</span>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <h3
+              style="color: #484848; margin-right: 23rem"
+              class="line-heading"
+            >
+              Ariana Grande
+            </h3>
 
-  <h2 class="testi-review" style="margin-top: 5rem; margin-bottom: 8px !important;">REAL PEOPLE, REAL REVIEWS</h2>
-  <p class="stars"
-  style="font-size: 40px; color:   gold;">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</p>
-
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-
-      <h3 style="color:#484848 ; margin-right: 23rem;" class="line-heading">Selena Gomez</h3>
-      
-      <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem; ">
-                  Smooth and thick on the skin, good deep hydration, not leaving
-                  a trace of greece behind. I love it! My skin is very dry,
-                  itchy with ashy elbows dry finger nails, fruity buns with a
-                  bit of a itch and this serum does a perfect job of deep
-                  hydration on my skin. Feels thick, smooth. I highly
-                  recommend!! 
-                  <span style="margin: 4rem;">Customer</span> 
-      </p>
-      
-      
+            <p
+              class="single-testimonial-item w-70 mx-auto"
+              style="height: 160px; width: 46rem"
+            >
+              The online store has a great layout. I can search by brand,
+              skin-type and category which is makes navigating so easy!! They
+              carry more brands than other Korean skincare online stores.
+              Products are well-described and I love the blogs too! Delivery is
+              fast. I most definitely shop here again.
+              <span style="margin: 4rem">Customer</span>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <h3
+              style="color: #484848; margin-right: 23rem"
+              class="line-heading"
+            >
+              Cardi Belcalis
+            </h3>
+            <p
+              class="single-testimonial-item w-70 mx-auto"
+              style="height: 160px; width: 46rem"
+            >
+              Ran out of my Korean skincare and Skin Theory had a selection (&
+              more) of what I was looking for. Price of products are affordable.
+              Delivery was very quick and was pleasantly surprised at the
+              generosity of samples. Will definitely return to order more. This
+              products leave my skin even more radiant.
+              <span style="margin: 4rem">Customer</span>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <h3
+              style="color: #484848; margin-right: 23rem"
+              class="line-heading"
+            >
+              Nicki Minaj
+            </h3>
+            <p
+              class="single-testimonial-item w-70 mx-auto"
+              style="height: 160px; width: 46rem"
+            >
+              First time online shopping with Skin Theory was great! Wide range
+              of k-beauty products, very user friendly and simple shopping
+              process, and loved the many lovely free samples that came along
+              with my purchases. Will definitely be using Skin Theory again for
+              my next k-beauty fix! I am just amazed overall!
+              <span style="margin: 4rem">Customer</span>
+            </p>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- End of slideshow -->
     </div>
-    <div class="carousel-item">
-
-       <h3  style="color:#484848 ; margin-right: 23rem;" class="line-heading">Ariana Grande </h3>
-
-      <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem;"> 
-         
-
-                 The online store has a great layout. I can search by brand,
-                  skin-type and category which is makes navigating so easy!!
-                  They carry more brands than other Korean skincare online
-                  stores. Products are well-described and I love the blogs too!
-                  Delivery is fast. I most definitely shop here again.
-                  <span style="margin: 4rem;">Customer</span> 
-      </p>
-      
-    </div>
-    <div class="carousel-item">
-      <h3  style="color:#484848 ; margin-right: 23rem;" class="line-heading">Cardi Belcalis</h3>
-      <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem;">  
-         
-
-                  Ran out of my Korean skincare and Skin Theory had a selection
-                  (& more) of what I was looking for. Price of products are
-                  affordable. Delivery was very quick and was pleasantly
-                  surprised at the generosity of samples. Will definitely return
-                  to order more. This products leave my skin even more radiant.  
-                  <span style="margin: 4rem;">Customer</span> 
-      </p>
-    
-    </div>
-        <div class="carousel-item">
-          <h3 style="color:#484848 ; margin-right: 23rem;" class="line-heading">Nicki Minaj</h3>
-      <p class="single-testimonial-item w-70 mx-auto" style="height: 160px; width: 46rem;">  
-
-                  First time online shopping with Skin Theory was great! Wide
-                  range of k-beauty products, very user friendly and simple
-                  shopping process, and loved the many lovely free samples that
-                  came along with my purchases. Will definitely be using Skin
-                  Theory again for my next k-beauty fix! I am just amazed overall!  
-                  <span style="margin: 4rem;">Customer</span> 
-      </p>
-
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<!-- End of slideshow -->
-
-    
-                </div>
   </div>
 </template>
 
 <script>
+import productCardVue from "@/components/productCard.vue";
 
 export default {
   name: "HomeView",
-  components: {},
+  components: {
+    productCardVue,
+  },
 };
-
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
 
 @media screen and (max-width: 500px) {
-  a.anchor-button{
+  a.anchor-button {
     margin-left: 0% !important;
     margin-left: 140px !important;
     margin-top: 750px !important;
     padding: 0% !important;
-
   }
-  }
+}
 
-  @media screen and (max-width: 300px) {
-  a.anchor-button{
+@media screen and (max-width: 300px) {
+  a.anchor-button {
     margin-left: 0% !important;
     margin-left: 36px !important;
     margin-top: 750px !important;
     padding: 0% !important;
-
   }
-  }
+}
 
-  @media screen and (max-width: 600px) {
-  a.anchor-button{
+@media screen and (max-width: 600px) {
+  a.anchor-button {
     margin-left: 0% !important;
     margin-left: 50px !important;
     margin-top: 750px !important;
     padding: 0% !important;
   }
+}
+
+@media screen and (max-width: 300px) {
+  .single-testimonial-item {
+    width: 100% !important;
+    font-size: 15px;
+    padding: 0% !important;
+    margin: 0% !important;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  h3.line-heading {
+    font-size: 22px;
+    margin: 0% !important;
+    text-align: center !important;
   }
 
-  @media screen and (max-width: 300px) {
-    .single-testimonial-item{
-      width: 100% !important;
-      font-size: 15px;
-      padding: 0% !important;
-      margin: 0% !important;
-    }
+  h3.line-heading::after {
+    width: 55%;
+  }
+  h2.line-head {
+    font-size: 19px !important;
   }
 
-
-
-    @media screen and (max-width: 300px){
-      h3.line-heading{
-        font-size: 22px;
-        margin: 0% !important;
-        text-align: center !important;
-      }
-
-      h3.line-heading::after{
-        width: 55%;
-      }
-      h2.line-head{
-        font-size: 19px !important;
-      }
-     
-      .spot-light{
-        font-size: 20px !important;
-      }
-      .testi-review{
-        font-size: 21px !important;
-      }
-  
-      .stars{
-        font-size: 29px !important;
-        margin-top: 0px !important;
-      }
-
-      h2 span{
-        font-size: 21px !important;
-      }
-    
-
-    .carousel-item{
-      width: 100% !important;
-      font-size: 10px !important;
-    }
+  .spot-light {
+    font-size: 20px !important;
   }
+  .testi-review {
+    font-size: 21px !important;
+  }
+
+  .stars {
+    font-size: 29px !important;
+    margin-top: 0px !important;
+  }
+
+  h2 span {
+    font-size: 21px !important;
+  }
+
+  .carousel-item {
+    width: 100% !important;
+    font-size: 10px !important;
+  }
+}
 
 * {
   margin: 0;
@@ -447,12 +507,11 @@ export default {
   font-family: "Poppins", sans-serif;
 }
 
-
-.anchor-button{
-  margin-left: 49rem !important;
-  margin-top: 50rem !important;
+.anchor-button {
+  margin-left: 41rem !important;
+  margin-top: 40rem !important;
 }
-.btn{
+.btn {
   color: white;
 }
 
@@ -565,7 +624,6 @@ nav {
     letter-spacing: 0 !important;
     margin-top: 4px !important;
     text-decoration: none !important;
-
   }
 
   .category-box h3 {
@@ -616,7 +674,7 @@ nav {
   transition: all 0.2s ease-in-out !important;
   /* box-shadow: 4px 4px 10px #ccc5b9, -4px -4px 10px#FFFCF2 !important; */
   cursor: pointer !important;
-  padding:6px !important;
+  padding: 6px !important;
   /* margin-left: 30rem !important; */
   /* margin-top: 50rem !important; */
 }
@@ -1082,7 +1140,7 @@ form {
   --platinum: #e5e5e5 !important;
   --black: #2b2d42 !important;
   --white: #fff !important;
-  --thumb: #edf2f4 !important
+  --thumb: #edf2f4 !important;
 }
 
 * {
@@ -1093,8 +1151,8 @@ form {
 
 body {
   font: 16px / 24px "Rubik", sans-serif !important;
-  color:#2b2d42 !important;
-  background-color:#e5e5e5 !important;
+  color: #2b2d42 !important;
+  background-color: #e5e5e5 !important;
   margin: 50px 0;
 }
 
@@ -1122,7 +1180,7 @@ h2 {
   flex-direction: column !important;
   flex: 0 0 100% !important;
   padding: 20px !important;
-  background-color: #fff  !important;
+  background-color: #fff !important;
   border-radius: 12px !important;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 15%) !important;
   scroll-snap-align: start !important;
@@ -1155,9 +1213,9 @@ h2 {
   display: inline-block !important;
   text-decoration: none !important;
   color: white !important;
-  background-color:#faaa94 !important;
+  background-color: #faaa94 !important;
   padding: 6px 12px !important;
-  border-radius: 8px!important ;
+  border-radius: 8px !important ;
   transition: background 0.2s !important;
 }
 
@@ -1179,7 +1237,7 @@ h2 {
 }
 
 .cardz::-webkit-scrollbar-track {
-  background-color:#edf2f4 !important;
+  background-color: #edf2f4 !important;
 }
 
 @media (min-width: 500px) {
@@ -1294,7 +1352,7 @@ h3 {
   left: 20px !important;
   top: 50% !important;
   font-size: 20px !important;
-  color: #8F7E18 !important;
+  color: #8f7e18 !important;
   line-height: 30px !important;
   margin-top: -15px !important;
 }
@@ -1348,11 +1406,8 @@ span {
 }
 /* about end */
 
-#carouselExampleIndicators{
+#carouselExampleIndicators {
   margin-top: 10rem !important;
   justify-content: center !important;
 }
-
-
 </style>
-

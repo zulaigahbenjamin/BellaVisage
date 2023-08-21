@@ -1,47 +1,98 @@
 <template lang="">
-    <div>
-        
+  <div>
+    <!-- Slide show -->
 
-            <!-- Slide show -->
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide mb-5 mt-5"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://i.postimg.cc/7Ybwv2RY/Slide-Skin-care.png"
+              class="d-block w-70 mx-auto"
+              style="height: 300px; width: 46rem"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://i.postimg.cc/JnzfWwhH/11111.png"
+              class="d-block w-70 mx-auto"
+              style="height: 300px"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://i.postimg.cc/0NPgcKRf/lll.png"
+              class="d-block w-70 mx-auto"
+              style="height: 300px"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- End of slideshow -->
 
-    <div id="carouselExampleIndicators" class="carousel slide  " data-bs-ride="carousel">
+      <!-- Card section -->
+      <h2
+        class="text-caro"
+        style="
+          text-align: center;
+          letter-spacing: 8px;
+          margin: 2rem;
+          color: black;
+        "
+      >
+        KOREAN SKIN
+      </h2>
 
-<div id="carouselExampleIndicators" class="carousel slide mb-5 mt-5" data-bs-ride="carousel">
-
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-
-      <img src="https://i.postimg.cc/7Ybwv2RY/Slide-Skin-care.png" class="d-block w-70  mx-auto" style="height: 300px; width: 46rem;">
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.postimg.cc/JnzfWwhH/11111.png" class="d-block w-70 mx-auto" style="height: 300px;">
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.postimg.cc/0NPgcKRf/lll.png" class="d-block w-70 mx-auto" style="height: 300px;">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<!-- End of slideshow -->
-
-<!-- Card section -->
-<h2 class="text-caro" style="text-align: center;letter-spacing: 8px;margin: 2rem; color:black;">KOREAN SKIN</h2>
- 
-
-<!-- filter -->
-<!-- <h2>Search Products</h2>
+      <!-- filter -->
+      <!-- <h2>Search Products</h2>
 
 <section id="products">
   <form action="" class="m-auto filter-form bg-black">
@@ -80,165 +131,185 @@
   </form>
 </section> -->
 
-<!--End of filter -->
+      <!--End of filter -->
 
-
-<div>
+      <div>
         <div>
-            <div v-if="products" class="flex-container">
-                <div v-for="product of products" :key="product.id">
-                    <!-- Render your product details here -->
-                    <div v-if="product" class="card" style="background-image: url(https://i.postimg.cc/1XvMr9n5/home-image.jpg); background-size:cover; background-repeat:no-repeat;">
-                        <img :src="product.image"  :alt="product.description" :class="card - img - top"
-                            style="padding: 1rem !important; width:30%; margin-left:42rem; border: 2px solid grey; background-color:pink;" height="550">
-                        <div class="card-body">
-                            <h1>{{ product.name }}</h1>
-                            <p class="card-text">{{ product.description }}</p>
-                            <p class="card-text">{{ product.price }}</p>
-                            <button class="btn btn-product" onclick="addToCart({{product.id}})">Buy Now</button>
-                        </div>
-                    </div>
+          <div v-if="products">
+            <div v-for="product of products" :key="product.id">
+              <!-- Render your product details here -->
+              <div v-if="product" class="card">
+                <img
+                  :src="product.image"
+                  :alt="product.description"
+                  :class="card - img - top"
+                  style="padding: 0.6rem; justify-content: center"
+                  height="450"
+                />
+                <div class="card-body">
+                  <h1 class="card-title">{{ product.name }}</h1>
+                  <p class="card-text">{{ product.description }}</p>
+                  <p class="card-text">{{ product.price }}</p>
+                  <button
+                    class="btn btn-product"
+                    onclick="addToCart({{product.id}})"
+                  >
+                    Buy Now
+                  </button>
                 </div>
+              </div>
             </div>
-            <div v-else>Loading...</div>
+          </div>
+          <div v-else>
+            Loading...
+            <svg viewBox="25 25 50 50">
+              <circle r="20" cy="50" cx="50"></circle>
+            </svg>
+          </div>
         </div>
-    </div>
-    <h2>HELLOOOOOO</h2>
-
-
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            product: null
-        }
+  data() {
+    return {
+      product: null,
+    };
+  },
+  computed: {
+    products() {
+      return this.$store.state.products;
     },
-    computed: {
-        products() {
-            return this.$store.state.products;
-        },
-    },
-    mounted() {
-        this.$store.dispatch('fetchProducts');
-    },
+  },
+  mounted() {
+    this.$store.dispatch("fetchProducts");
+  },
 };
 </script>
 
 <style scoped>
-
-
-
-
-
-
-@media screen and (max-width: 300px){
-.d-block{
-  width: 100% !important;
-  height: 200px !important;
-  padding: 20px !important;
+svg {
+ width: 3.25em;
+ transform-origin: center;
+ animation: rotate4 2s linear infinite;
 }
 
+circle {
+ fill: none;
+ stroke: hsl(214, 97%, 59%);
+ stroke-width: 2;
+ stroke-dasharray: 1, 200;
+ stroke-dashoffset: 0;
+ stroke-linecap: round;
+ animation: dash4 1.5s ease-in-out infinite;
 }
 
+@keyframes rotate4 {
+ 100% {
+  transform: rotate(360deg);
+ }
+}
 
+@keyframes dash4 {
+ 0% {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+ }
 
+ 50% {
+  stroke-dasharray: 90, 200;
+  stroke-dashoffset: -35px;
+ }
 
-  
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+ 100% {
+  stroke-dashoffset: -125px;
+ }
+}
+
+@media screen and (max-width: 300px) {
+  .d-block {
+    width: 100% !important;
+    height: 200px !important;
+    padding: 20px !important;
   }
-  
-  body {
-    font: 16px / 24px "Rubik", sans-serif;
-    color: var(--black);
-    background: var(--platinum);
-    margin: 50px 0;
-  }
-  
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
 
 @media screen and (max-width: 500px) {
-  a.anchor-button{
+  a.anchor-button {
     margin-left: 0% !important;
     margin-left: 140px !important;
     margin-top: 750px !important;
     padding: 0% !important;
-
   }
-  }
+}
 
-  @media screen and (max-width: 300px) {
-  a.anchor-button{
+@media screen and (max-width: 300px) {
+  a.anchor-button {
     margin-left: 0% !important;
     margin-left: 36px !important;
     margin-top: 750px !important;
     padding: 0% !important;
-
   }
-  }
+}
 
-  @media screen and (max-width: 600px) {
-  a.anchor-button{
+@media screen and (max-width: 600px) {
+  a.anchor-button {
     margin-left: 0% !important;
     margin-left: 50px !important;
     margin-top: 750px !important;
     padding: 0% !important;
   }
+}
+
+@media screen and (max-width: 300px) {
+  .single-testimonial-item {
+    width: 100% !important;
+    font-size: 15px;
+    padding: 0% !important;
+    margin: 0% !important;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  h3.line-heading {
+    font-size: 22px;
+    margin: 0% !important;
+    text-align: center !important;
   }
 
-  @media screen and (max-width: 300px) {
-    .single-testimonial-item{
-      width: 100% !important;
-      font-size: 15px;
-      padding: 0% !important;
-      margin: 0% !important;
-    }
+  h3.line-heading::after {
+    width: 55%;
+  }
+  h2.line-head {
+    font-size: 19px !important;
   }
 
-
-
-    @media screen and (max-width: 300px){
-      h3.line-heading{
-        font-size: 22px;
-        margin: 0% !important;
-        text-align: center !important;
-      }
-
-      h3.line-heading::after{
-        width: 55%;
-      }
-      h2.line-head{
-        font-size: 19px !important;
-      }
-     
-      .spot-light{
-        font-size: 20px !important;
-      }
-      .testi-review{
-        font-size: 21px !important;
-      }
-  
-      .stars{
-        font-size: 29px !important;
-        margin-top: 0px !important;
-      }
-
-      h2 span{
-        font-size: 21px !important;
-      }
-    
-
-    .carousel-item{
-      width: 100% !important;
-      font-size: 10px !important;
-    }
+  .spot-light {
+    font-size: 20px !important;
   }
+  .testi-review {
+    font-size: 21px !important;
+  }
+
+  .stars {
+    font-size: 29px !important;
+    margin-top: 0px !important;
+  }
+
+  h2 span {
+    font-size: 21px !important;
+  }
+
+  .carousel-item {
+    width: 100% !important;
+    font-size: 10px !important;
+  }
+}
 
 * {
   margin: 0;
@@ -249,12 +320,11 @@ export default {
   font-family: "Poppins", sans-serif;
 }
 
-
-.anchor-button{
+.anchor-button {
   margin-left: 49rem !important;
   margin-top: 50rem !important;
 }
-.btn{
+.btn {
   color: white;
 }
 
@@ -367,7 +437,6 @@ nav {
     letter-spacing: 0 !important;
     margin-top: 4px !important;
     text-decoration: none !important;
-
   }
 
   .category-box h3 {
@@ -418,7 +487,7 @@ nav {
   transition: all 0.2s ease-in-out !important;
   /* box-shadow: 4px 4px 10px #ccc5b9, -4px -4px 10px#FFFCF2 !important; */
   cursor: pointer !important;
-  padding:6px !important;
+  padding: 6px !important;
   /* margin-left: 30rem !important; */
   /* margin-top: 50rem !important; */
 }
@@ -517,7 +586,7 @@ nav {
   padding: 0;
 }
 .btn {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
@@ -648,7 +717,7 @@ form {
   background-color: #ecc3b3 !important;
   margin-top: 2rem;
   padding: 6px !important;
-  margin-left: 58rem !important;
+  /* margin-left: 45rem !important; */
   margin-bottom: 2rem;
   color: white !important;
 }
@@ -886,7 +955,7 @@ form {
   --platinum: #e5e5e5 !important;
   --black: #2b2d42 !important;
   --white: #fff !important;
-  --thumb: #edf2f4 !important
+  --thumb: #edf2f4 !important;
 }
 
 * {
@@ -897,8 +966,8 @@ form {
 
 body {
   font: 16px / 24px "Rubik", sans-serif !important;
-  color:#2b2d42 !important;
-  background-color:#e5e5e5 !important;
+  color: #2b2d42 !important;
+  background-color: #e5e5e5 !important;
   margin: 50px 0;
 }
 
@@ -926,7 +995,7 @@ h2 {
   flex-direction: column !important;
   flex: 0 0 100% !important;
   padding: 20px !important;
-  background-color: #fff  !important;
+  background-color: #fff !important;
   border-radius: 12px !important;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 15%) !important;
   scroll-snap-align: start !important;
@@ -959,9 +1028,9 @@ h2 {
   display: inline-block !important;
   text-decoration: none !important;
   color: white !important;
-  background-color:#faaa94 !important;
+  background-color: #faaa94 !important;
   padding: 6px 12px !important;
-  border-radius: 8px!important ;
+  border-radius: 8px !important ;
   transition: background 0.2s !important;
 }
 
@@ -983,7 +1052,7 @@ h2 {
 }
 
 .cardz::-webkit-scrollbar-track {
-  background-color:#edf2f4 !important;
+  background-color: #edf2f4 !important;
 }
 
 @media (min-width: 500px) {
@@ -1098,7 +1167,7 @@ h3 {
   left: 20px !important;
   top: 50% !important;
   font-size: 20px !important;
-  color: #8F7E18 !important;
+  color: #8f7e18 !important;
   line-height: 30px !important;
   margin-top: -15px !important;
 }
@@ -1152,9 +1221,8 @@ span {
 }
 /* about end */
 
-#carouselExampleIndicators{
+#carouselExampleIndicators {
   margin-top: 4rem !important;
   justify-content: center !important;
 }
-
 </style>

@@ -28,7 +28,7 @@
   
           <div id="form-box" class="col-md-8 p-2">
             <div class="card border-2 mt-5 second" id="contact-box">
-              <form action="https://i.postimg.cc/HsbqzZy5/Bv-1.png" method="POST">
+              <form action="https://formspree.io/f/xknayqyj" method="POST">
                 <h2
                   id="slideInLeft"
                   class="card p-1 heading-text pink-bg border-2 text-center"
