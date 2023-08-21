@@ -9,9 +9,7 @@ const router = express.Router();
   
 // Get All Product
 router.get('/products', showProducts);
-//  const id = req.params.id
-//  const products = await getProducts(id)
-//  res.send(products);
+// 
   
 // Get Single Product
 router.get('/products/:id', showProductById);
@@ -31,6 +29,7 @@ router.get('/products/:id', showProductById);
   
 // Create New Product
 router.post('/products', createProduct);
+
   
 // Update Product
 router.put('/products/:id', updateProduct);
