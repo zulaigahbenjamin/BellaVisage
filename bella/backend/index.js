@@ -1,4 +1,3 @@
-
 import cors from "cors";
 import express from "express";
 import bodyParser from "body-parser";
@@ -6,21 +5,34 @@ import Router from "./routes/route.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-const allowedOrigins = ['http://localhost:8080', 'http://localhost:8081'];
+import { errorHandeling } from "./middleware/errorHandeling.js";
 
-// Assuming your './config/database.js' exports the 'connection' object
-import connection from './config/database.js';
+const allowedOrigins = ['http://localhost:8080', 'http://localhost:8081'];
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const app = express();
+const app = express(); // Create the 'app' instance first
+
 const corsOptions = {
-    origin: allowedOrigins
-  };
-const port = +process.env.PORT || 5002
+  origin: allowedOrigins
+};
 
+const port = +process.env.PORT || 5002;
 
+// Configure CORS headers
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header("Access-Control-Request-Methods", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Expose-Headers", "Authorization");
+  next();
+});
+
+// Set up middleware and routes
+app.use(errorHandeling);
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(cors());
@@ -29,17 +41,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(Router);
 app.use(express.static(path.join(__dirname, 'static')));
 
+// Define your routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'static', 'html','index.html'));
 });
 
-app.get('/', (req, res)=> {
-    res.json({
-      status: res.statusCode,
-        msg: "You're home"
-    })
-    res.sendFile()
+app.get('/home', (req, res) => {
+  res.json({
+    status: res.statusCode,
+    msg: "You're home"
+  });
 });
+
 
 
 
