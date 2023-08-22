@@ -17,6 +17,7 @@ db.connect(function(err) {
     });
   });
 
+
   // db.query("INSERT INTO todos SET ? ", params,
   // function (error, results, fields) {
   //     if (error) throw error;
@@ -34,5 +35,7 @@ db.connect(function(err) {
   //     console.log("1 record inserted");
   //   });
   // });
+;
+
 
 export default db;
