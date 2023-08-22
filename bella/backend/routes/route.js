@@ -2,7 +2,7 @@
 import express from "express";
   
 // import function from controller
-import { showProducts, showProductById, createProduct, updateProduct } from "../controllers/controller.js";
+import { showProducts, showProductById, createProduct, updateProduct, deleteProduct} from "../controllers/controller.js";
  
 // init express router
 const router = express.Router();
@@ -13,29 +13,15 @@ router.get('/products', showProducts);
   
 // Get Single Product
 router.get('/products/:id', showProductById);
-
-  
-// // Call the getProductById function to fetch the product by ID
-// getProductById(productId, (err, product) => {
-//   if (err) {
-//     console.error(err);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   } else if (!product) {
-//     res.status(404).json({ error: 'Product not found' });
-//   } else {
-//     res.json(product);
-//   }
-// });
   
 // Create New Product
 router.post('/products', createProduct);
 
-  
 // Update Product
 router.put('/products/:id', updateProduct);
   
 // Delete Product
 
-  
+  router.delete('/product/:id', deleteProduct);
 // export default router
 export default router;

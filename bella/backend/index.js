@@ -50,7 +50,6 @@ app.post('/products', (req, res) => {
   }); 
   app.post('/addProduct', (req, res) => {
     const { productName, productSize, productDescription, productPrice } = req.body;
-  
     const sql = 'INSERT INTO products (name, size, description, price) VALUES (?, ?, ?, ?)';
     const values = [productName, productSize, productDescription, productPrice];
   

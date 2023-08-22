@@ -2,12 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+// import cors from 'cors'
+import AddProduct from './components/AddProduct.vue'
 
-createApp(App).use(store).use(router).mount('#app')
-
-// Vue.config.productionTip = false;
-
-// new Vue({
-//     router,
-//     render: h => h(App)
-//   }).$mount('#app');
+createApp(App).use(store).use(AddProduct).use(router).mount('#app')

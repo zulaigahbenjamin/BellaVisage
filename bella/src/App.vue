@@ -4,10 +4,17 @@
     <router-link to="/about">About</router-link>
     <router-link to="/admin">Admin</router-link>
     <router-link to="/products">Products</router-link>
-    <router-view>sss</router-view>
+   
   </nav>
   <router-view/>
 </template>
+<script>
+import AddProduct from './components/AddProduct.vue'
+export default {
+  name: 'App',
+  components :{ }
+}
+</script>
 
 <style>
 #app {

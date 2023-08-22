@@ -25,7 +25,7 @@
 export default {
     data() {
         return {
-            product: null
+            products: null
         }
     },
     computed: {
@@ -38,5 +38,4 @@ export default {
     },
 };
 </script>
-1:35
-productView;
+

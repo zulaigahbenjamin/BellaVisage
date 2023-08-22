@@ -5,16 +5,19 @@ export default createStore({
   state: {
     products: null,
     product: null,
+    AddProduct:null,
+    UpdateProduct: null
+
   },
-  getters: {
-  },
+ 
   mutations: {
-    ADD_PRODUCT(state, newProduct) {
+    AddProduct(state, newProduct) {
       state.products.push(newProduct);
     },
     SET_PRODUCTS(state, productData) {
       state.products = productData;
     },
+
   },
   actions: {
     async fetchProducts(context) {
@@ -29,7 +32,7 @@ export default createStore({
       }
     },
     fetchDataFromServer() {
-      fetch("https://zulaigahsapi.onrender.com/")
+      fetch("https://zulaigahsapi.onrender.com/products")
         .then(response => response.json())  
         .then(data => console.log(data))
         .catch(error => console.error(error));
@@ -40,7 +43,7 @@ export default createStore({
         .then(data => console.log(data))
         .catch(error => console.error(error));
     },
-    addProduct(context, newProduct) {
+    AddProduct(context, newProduct) {
       fetch("https://zulaigahsapi.onrender.com/products", {
         method: 'POST',
         headers: {
@@ -50,7 +53,7 @@ export default createStore({
       })
       .then(response => response.json())
       .then(data => {
-        context.commit('ADD_PRODUCT', data);
+        context.commit('AddProduct', data);
       })
       .catch(error => console.error(error));
     }
@@ -58,6 +61,5 @@ export default createStore({
 
 
   },
-  modules: {
-  }
+  
 })
