@@ -46,17 +46,6 @@
 
 
 
-
-  <!-- https://i.postimg.cc/HsbqzZy5/Bv-1.png 
-  
-    𝐇𝐨𝐦𝐞
-   𝐏𝐫𝐨𝐝𝐮𝐜𝐭
-   𝐀𝐛𝐨𝐮𝐭
-   𝐂𝐨𝐧𝐭𝐚𝐜𝐭
-   𝐋𝐨𝐠 𝐈𝐧
-  -->
-
-  <!-- End Navbar -->
     </div>
 </template>
 <script>
@@ -86,18 +75,21 @@ export default {
     padding: 0 25px;
     position: relative;
   }
+  /* styling for active links for the future */
   #navbar li a {
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
-    color: black !important;
+    color: black ;
     transition: 0.5s ease;
   }
-  #navbar li a:hover,
-  #navbar li a.active {
+  /* styling for active links for the future */
+  #navbar li a:hover,#navbar li a.active {
     color: black !important;
   }
-  #navbar li a.active::after,
+
+  /* styling for active links for the future */
+  #navbar li a.router-link-exact-active::after,
   #navbar li a:hover::after {
     content: "";
     width: 56%;
@@ -116,5 +108,11 @@ export default {
 }
 
 
-    
+ul li a{
+  text-decoration: none;
+}
+
+ul li a.router-link-exact-active{
+  text-decoration: none;
+}
 </style>

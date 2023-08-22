@@ -42,7 +42,7 @@
                     type="text"
                     name="Name"
                     class="form-control light-bg border-2"
-                    placeholder="Please enter your name"
+                    placeholder="Kindly enter your name"
                     required
                   />
                 </div>
@@ -53,7 +53,7 @@
                     type="email"
                     name="Email"
                     class="form-control light-bg border-2"
-                    placeholder="Please Enter your email"
+                    placeholder="Kindly Enter your email"
                     required
                   />
                 </div>
@@ -81,11 +81,45 @@
     </div>
   </template>
   <script>
-  export default {
-      
+ export default {
+  // Existing data and methods...
+  methods: {
+    validateForm() {
+      let isValid = true;
+
+      if (!this.name) {
+        this.errors.name = 'Name is required';
+        isValid = false;
+      } else {
+        this.errors.name = '';
+      }
+
+      if (!this.email) {
+        this.errors.email = 'Email is required';
+        isValid = false;
+      } else if (!this.isValidEmail(this.email)) {
+        this.errors.email = 'Invalid email format';
+        isValid = false;
+      } else {
+        this.errors.email = '';
+      }
+
+      if (!this.message) {
+        this.errors.message = 'Message is required';
+        isValid = false;
+      } else {
+        this.errors.message = '';
+      }
+
+      return isValid;
+    },
+    isValidEmail(email) {
+      // Implement your email validation logic
+    }
   }
+};
   </script>
-  
+   
   
   <style scoped>
   @media screen and (max-width: 300px){

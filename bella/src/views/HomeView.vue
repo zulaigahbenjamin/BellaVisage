@@ -2,7 +2,7 @@
   <div class="home">
     <section id="hero">
       <a class="anchor-button" href="#"
-        ><button
+        ><button id="shop"
           style="
             background-color: #d78976 !important;
             border-radius: 0% !important;
@@ -43,7 +43,51 @@
       
           <span style="color: #ecc3b3">BEST SELLERS</span>
         </h2>
-        <productCardVue/>
+        <!-- <productCardVue/> -->
+
+        <!-- Start of data -->
+
+        <div class="category" id="category">
+    <div class="category-title">
+     
+    </div>
+    <div class="category-box">
+      <div class="box woman-box">
+        <div class="box-content b2">
+          <h3>FACIAL SKIN CARE</h3>
+          <label>FOR DRY SKIN</label>
+          <a class="feature-btn" href="/html/product.html">Go Here</a>
+        </div>
+        <img src="https://i.postimg.cc/J0P0zZQB/Prods-1.jpg" loading="lazy" class="image-feature">
+      </div>
+      <div class="box man-box">
+        <div class="box-content b2">
+          <h3>BODY SKIN CARE</h3>
+          <label>FOR OILY SKIN</label>
+          <a class="feature-btn" href="/html/product.html">Go Here</a>
+        </div>
+        <img src="https://i.postimg.cc/28LN6nTR/Prod-2.jpg" loading="lazy" class="image-feature">
+      </div>
+      <div class="box man-box">
+        <div class="box-content b2">
+          <h3>FOOT SKIN CARE</h3>
+          <label>COMBINATION SKIN</label>
+          <a class="feature-btn" href="/html/product.html">Go Here</a>
+        </div>
+        <img src="https://i.postimg.cc/28LN6nTR/Prod-2.jpg" loading="lazy" class="image-feature">
+      </div>
+      <div class="box man-box">
+        <div class="box-content b2">
+          <h3>FOOT SKIN CARE</h3>
+          <label>COMBINATION SKIN</label>
+          <a class="feature-btn" href="/html/product.html">Go Here</a>
+        </div>
+        <img src="https://i.postimg.cc/28LN6nTR/Prod-2.jpg" loading="lazy" class="image-feature">
+      </div>
+    </div>
+  </div>
+
+        <!-- End of data -->
       </div>
     </div>
 
@@ -426,6 +470,30 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
 
+@media screen and (max-width: 700px){
+  a.anchor-button{
+   margin: 0px !important;
+   margin: auto !important;
+   position: relative;
+   top: 17.6rem;
+   
+  }
+
+
+}
+
+@media screen and (max-width: 800px){
+  a.anchor-button{
+   margin: 0px !important;
+   margin: auto !important;
+   position: relative;
+   top: 17.6rem;
+   
+  }
+}
+
+
+
 @media screen and (max-width: 500px) {
   a.anchor-button {
     margin-left: 0% !important;
@@ -437,19 +505,31 @@ export default {
 
 @media screen and (max-width: 300px) {
   a.anchor-button {
-    margin-left: 0% !important;
-    margin-left: 36px !important;
-    margin-top: 750px !important;
-    padding: 0% !important;
+    margin: 0px !important;
+   margin: auto !important;
+   position: relative;
+    bottom: 94px;
+    top: auto;
   }
 }
 
 @media screen and (max-width: 600px) {
-  a.anchor-button {
-    margin-left: 0% !important;
-    margin-left: 50px !important;
-    margin-top: 750px !important;
-    padding: 0% !important;
+  a.anchor-button{
+   margin: 0px !important;
+   margin: auto !important;
+   position: relative;
+   top: 17.6rem;
+   
+  }
+}
+
+@media screen and (max-width: 9=00px) {
+  a.anchor-button{
+   margin: 0px !important;
+   margin: auto !important;
+   position: relative;
+   top: 17.6rem;
+   
   }
 }
 
@@ -508,12 +588,21 @@ export default {
 }
 
 .anchor-button {
-  margin-left: 41rem !important;
-  margin-top: 40rem !important;
+  margin: 0px !important;
+   margin: auto !important;
+   position: relative;
+   top: 20.4rem;
 }
 .btn {
   color: white;
 }
+
+/* Home CSS */
+.image-feature{
+  width: 100% !important;
+  height: 300px !important;
+ }
+/* End of Home CSS */
 
 h1 {
   font-size: 50px;
