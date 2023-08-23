@@ -10,7 +10,7 @@ const db = mysql2.createPool({
   user     : process.env.user,
   password : process.env.password,
   multipleStatements: true,
-  connectionLimit:3000000,
+  connectionLimit:30,
 });
 
 db.connect(function(err) {
