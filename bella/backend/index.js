@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import Router from "./routes/route.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
+import db from './config/database.js';
 import { dirname } from 'path';
 import { errorHandeling } from "./middleware/errorHandeling.js";
 
@@ -54,7 +55,10 @@ app.get('/home', (req, res) => {
 });
 
 
-
+app.get('/users', (req, res) => {
+  const users = new users();
+  users.fetchUsers(req, res); // Pass the req and res objects
+});
 
 app.post('/products', (req, res) => {
   const newProduct = req.body;
@@ -63,7 +67,7 @@ app.post('/products', (req, res) => {
 });
 app.post('/addProduct', (req, res) => {
   const { productName, productSize, productDescription, productPrice } = req.body;
-  const sql = 'INSERT INTO products (name, size, description, price) VALUES (?, ?, ?, ?)';
+  const sql = 'INSERT INTO products ( prodID, prodUrl, prodName, quantity,size,category, amount) VALUES (?, ?, ?, ?,?,?,?)';
   const values = [productName, productSize, productDescription, productPrice];
 
   db.query(sql, values, (err, result) => {
@@ -79,9 +83,9 @@ app.post('/addProduct', (req, res) => {
 app.delete('/products/:id', (req, res) => {
   const productId = req.params.id;
 
-  const sql = 'DELETE FROM products WHERE id = ?';
+  const sql = 'DELETE FROM products WHERE prodID = ?';
 
-  connection.query(sql, [productId], (error, result) => {
+  db.query(sql, [productId], (error, result) => {
     if (error) {
       console.error('Error deleting product:', error);
       res.status(500).send('Error deleting product');
@@ -97,7 +101,7 @@ app.delete('/products/:id', (req, res) => {
 ///users
 app.post('/users', (req, res) => {
   const newUser = req.body;
-  user.push(newUsers);
+  user.push(newUser);
   res.status(201).json(newUsers);
 });
 app.post('/addUsers', (req, res) => {

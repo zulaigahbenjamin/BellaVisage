@@ -1,14 +1,15 @@
 // Import function from Product Model
-import Users from "backend/models/user";
+// import User from "../models/user.js";
 
 
-const user = new Users();
-
+// const user = new User();
+import { getUsers, getUsersById, insertUser, updateUserById, deleteUserById } from "../models/user.js";
 
   
 // Get All Products
 export const showUsers = (req, res) => {
-    user.fetchUser((err, results) => {
+    getUsers
+    ((err, results) => {
         if (err){
             res.send(err);
         }else{
@@ -22,7 +23,7 @@ export const showUsers = (req, res) => {
   
 // Get Single Product 
 export const showUserById = (req, res) => {
-    getUserById(req.params.id, (err, results) => {
+    getUsersById(req.params.id, (err, results) => {
         if (err){
             res.send(err);
         }else{
@@ -34,7 +35,7 @@ export const showUserById = (req, res) => {
 // Create New Product
 export const createUser  = (req, res) => {
     const data = req.body;
-    insertUser (data, (err, results) => {
+    insertUser(data, (err, results) => {
         if (err){
             res.send(err);
         }else{
