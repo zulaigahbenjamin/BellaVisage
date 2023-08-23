@@ -1,11 +1,16 @@
-import mysql from "mysql2";
-   
+import mysql2 from "mysql2";
+import dotenv from 'dotenv';
+
+dotenv.config();
+ 
 // create the connection to database
-const db = mysql.createConnection({
-  host: 'bgkq7axlalh52arwgnvv-mysql.services.clever-cloud.com',
-  user: 'u9j898sc5oghrbny',
-  password: 'kRlXj9ltbbDgL5JVT21O',
-  database: 'bgkq7axlalh52arwgnvv'
+const db = mysql2.createConnection({
+  host     : process.env.host,
+  database : process.env.database,
+  user     : process.env.user,
+  password : process.env.password,
+  multipleStatements: true,
+  connectionLimit:30,
 });
 
 db.connect(function(err) {
