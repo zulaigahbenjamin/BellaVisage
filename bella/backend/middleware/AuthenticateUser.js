@@ -14,7 +14,7 @@ const token = jwt.sign(payload, secretKey);
 function createToken(user) {
     return sign({
         emailAdd: user.emailAdd,
-        userPwd: user.userPwd
+        userPass: user.userPass
     },
     process.env.SECRET_KEY,
     {

@@ -94,8 +94,6 @@ app.delete('/products/:id', (req, res) => {
 
 
 
-
-
 ///users
 app.post('/users', (req, res) => {
   const newUser = req.body;
@@ -138,7 +136,7 @@ app.post('/addUsers', (req, res) => {
 });
 
 app.delete('/users/:id', (req, res) => {
-  const productId = req.params.id;
+  const UserId = req.params.id;
 
   const sql = 'DELETE FROM Users WHERE id = ?';
 

@@ -5,13 +5,13 @@ import express from "express";
 
   
 // import function from controller
-import { showUser, showUserById, createUser, updateUser, deleteUser} from "../controllers/User.js";
+import { showUsers, showUserById, createUser, updateUser, deleteUser} from "../controllers/User.js";
  
 // init express router
 const router = express.Router();
   
 // Get All Product
-router.get('/users', showUser);
+router.get('/users', showUsers);
 // 
   
 // Get Single Product

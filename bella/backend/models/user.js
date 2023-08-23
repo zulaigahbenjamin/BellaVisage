@@ -1,4 +1,4 @@
-import db from "../config/database.js";
+import db from "../config/database";
 import { hash, compare, hashSync } from "bcrypt";
 import { createToken} from "../middleware/AuthenticateUser.js";
 
@@ -9,7 +9,7 @@ import { createToken} from "../middleware/AuthenticateUser.js";
 class Users {
     fetchUsers(req, res) {
         const query = `
-        SELECT userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPwd, userProfile
+        SELECT userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
         FROM Users;
         `
         db.query(query,
@@ -23,7 +23,7 @@ class Users {
     }
     fetchUser(req, res) {
         const query = `
-        SELECT userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPwd, userProfile
+        SELECT userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
         FROM Users
         WHERE userID = ${req.params.id};
         `
@@ -37,10 +37,10 @@ class Users {
             })
     }
     async login(req, res) {
-        const { emailAdd, userPwd } = req.body;
+        const { emailAdd, userPass } = req.body;
 
         const query = `
-            SELECT userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPwd, userProfile
+            SELECT userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
             FROM Users
             WHERE emailAdd = ?;
         `;
@@ -54,22 +54,22 @@ class Users {
                     msg: "You provided a wrong email."
                 });
             } else {
-                await compare(userPwd, result[0].userPwd, (cErr, cResult) => {
+                await compare(userPass, result[0].userPass, (cErr, cResult) => {
                     if (cErr) throw cErr;
 
                     const token = createToken({
                         emailAdd,
-                        userPwd
+                        userPass
                     });
 
                     res.cookie("LegitUser", token, {
-                        maxAge: 3600000,
+                        maxAge: 360,
                         httpOnly: true
                     });
 
                     if (cResult) {
                         res.json({
-                            msg: "Logged in",
+                            msg: "Your Logged in ;) ",
                             token,
                             result: result[0]
                         });
@@ -87,18 +87,18 @@ class Users {
     async register(req, res) {
         const data = req.body;
 
-        if (!data.userPwd) {
+        if (!data.userPass) {
             return res.json({
                 status: res.statusCode,
                 msg: "Password is required"
             });
         }
 
-        data.userPwd = await hash(data.userPwd, 15);
+        data.userPass = await hash(data.userPass, 15);
 
         const user = {
             emailAdd: data.emailAdd,
-            userPwd: data.userPwd
+            userPass: data.userPass
         };
 
         const query = `
@@ -112,7 +112,7 @@ class Users {
             let token = createToken(user);
 
             res.cookie("LegitUser", token, {
-                maxAge: 3600000,
+                maxAge: 3600,
                 httpOnly: true
             });
 
@@ -123,7 +123,7 @@ class Users {
         });
     }
 
-    // ... Other methods ...
+   
 }
 
 export default Users;

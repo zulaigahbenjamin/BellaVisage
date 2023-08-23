@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
  
 // create the connection to database
-const db = mysql2.createConnection({
+const db = mysql2.createPool({
   host     : process.env.host,
   database : process.env.database,
   user     : process.env.user,
