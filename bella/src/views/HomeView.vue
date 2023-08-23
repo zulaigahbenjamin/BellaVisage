@@ -62,27 +62,27 @@
       </div>
       <div class="box man-box">
         <div class="box-content b2">
-          <h3>BODY SKIN CARE</h3>
-          <label>FOR OILY SKIN</label>
-          <a class="feature-btn" href="/html/product.html">Go Here</a>
+          <h3 style="color: white;">BODY SKIN CARE</h3>
+          <label style="color: white;">FOR OILY SKIN</label>
+          <a style="background-color: white;color: rgb(132, 132, 224);" class="feature-btn" href="/html/product.html">Go Here</a>
         </div>
         <img src="https://i.postimg.cc/28LN6nTR/Prod-2.jpg" loading="lazy" class="image-feature">
       </div>
       <div class="box man-box">
         <div class="box-content b2">
-          <h3>FOOT SKIN CARE</h3>
-          <label>COMBINATION SKIN</label>
-          <a class="feature-btn" href="/html/product.html">Go Here</a>
+          <h3 style="color:#eb5e28 ;">FOOT SKIN CARE</h3>
+          <label style="color:#eb5e28 ;">COMBINATION SKIN</label>
+          <a style="background-color:white ; color: #eb5e28;" class="feature-btn" href="/html/product.html">Go Here</a>
         </div>
-        <img src="https://i.postimg.cc/28LN6nTR/Prod-2.jpg" loading="lazy" class="image-feature">
+        <img src="https://i.postimg.cc/dtCYgBMS/K-images.jpg" loading="lazy" class="image-feature">
       </div>
       <div class="box man-box">
         <div class="box-content b2">
-          <h3>FOOT SKIN CARE</h3>
-          <label>COMBINATION SKIN</label>
-          <a class="feature-btn" href="/html/product.html">Go Here</a>
+          <h3 style="color: #3f9bd4;">FOOT SKIN CARE</h3>
+          <label style="color: #3f9bd4;">COMBINATION SKIN</label>
+          <a style="background-color: white;color: #3f9bd4;" class="feature-btn" href="/html/product.html">Go Here</a>
         </div>
-        <img src="https://i.postimg.cc/28LN6nTR/Prod-2.jpg" loading="lazy" class="image-feature">
+        <img src="https://i.postimg.cc/Hs8YdmMz/k-image-3.jpg" loading="lazy" class="image-feature">
       </div>
     </div>
   </div>
@@ -233,76 +233,7 @@
     </div>
     <!-- <footer class="page-footer"> -->
 
-    <!-- Carousel -->
-
-    <!-- <div class="section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-title">
-              <h2>REAL PEOPLE, REAL REVIEWS</h2>
-
-              <div class="section-borders">
-                <span></span>
-                <span class="black-border"></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="owl-carousel client-testimonial-carousel">
-              <div class="single-testimonial-item">
-                <p>
-                  First time online shopping with Skin Theory was great! Wide
-                  range of k-beauty products, very user friendly and simple
-                  shopping process, and loved the many lovely free samples that
-                  came along with my purchases. Will definitely be using Skin
-                  Theory again for my next k-beauty fix!
-                </p>
-                <h3>Nicki Manaj <span>Customer</span></h3>
-              </div>
-              <div class="single-testimonial-item">
-                <p>
-                  Ran out of my Korean skincare and Skin Theory had a selection
-                  (& more) of what I was looking for. Price of products are
-                  affordable. Delivery was very quick and was pleasantly
-                  surprised at the generosity of samples. Will definitely return
-                  to order more.
-                </p>
-                <h3>Cardi B <span>Customer</span></h3>
-              </div>
-              <div class="single-testimonial-item">
-                <p>
-                  The online store has a great layout. I can search by brand,
-                  skin-type and category which is makes navigating so easy!!
-                  They carry more brands than other Korean skincare online
-                  stores. Products are well-described and I love the blogs too!
-                  Delivery is fast.
-                </p>
-                <h3>Ariana Grande <span>Customer</span></h3>
-              </div>
-              <div class="single-testimonial-item">
-                <p>
-                  Smooth and thick on the skin, good deep hydration, not leaving
-                  a trace of greece behind. I love it! My skin is very dry,
-                  itchy with ashy elbows dry finger nails, fruity buns with a
-                  bit of a itch and this serum does a perfect job of deep
-                  hydration on my skin. Feels thick, smooth. I highly
-                  recommend!!
-                </p>
-                <h3>Selena Gomez <span>Customer</span></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- End Carousel -->
-
-    <!-- Slide show -->
+   
 
     <div
       id="carouselExampleIndicators"
@@ -775,7 +706,8 @@ nav {
 /* feature button */
 .feature-btn {
   text-decoration: none;
-  margin-top: 50px !important;
+  margin-top: 165px !important;
+  margin-left: 45px;
 }
 
 /* category */
@@ -811,33 +743,35 @@ nav {
 }
 
 .category .category-box .box-content h3 {
-  color: #eb5e28;
-  font-size: 30px;
+  color: #faaa94;
+  font-size: 20px;
   margin-top: 40px;
 }
 
 .category .category-box .box-content label {
   display: block;
-  font-size: 27px;
-  color: #eb5e28;
+  font-size: 15px;
+  color: #faaa94;
 }
 .category .category-box .box-content a {
   display: inline-block;
   margin-top: 10px;
-  padding: 10px 25px;
+  padding: 4px 10px !important;
   font-size: 14px;
   border-radius: 25px;
-  background: #fffcf2;
+  background: #faaa94;
   transition: all 0.19s ease-in;
-  color: black;
+  color: white;
 }
 .category .category-box .box-content a:hover {
-  background: silver;
+  background: #faaa94;
+  color:white;
 }
 .category .category-box .box-content.b2 {
   margin: 15px;
   text-align: left;
-  margin-top: 100px;
+  margin-top: 10px;
+  margin-left: 70px;
 }
 
 /* banner section */

@@ -92,7 +92,7 @@
       </h2>
 
       <!-- filter -->
-      <!-- <h2>Search Products</h2>
+      <h2>Search Products</h2>
 
 <section id="products">
   <form action="" class="m-auto filter-form bg-black">
@@ -129,33 +129,21 @@
     </div>
 
   </form>
-</section> -->
+</section>
 
       <!--End of filter -->
 
       <div>
-        <div>
-          <div v-if="products">
-            <div v-for="product of products" :key="product.id">
-              <!-- Render your product details here -->
-              <div v-if="product" class="card">
-                <img
-                  :src="product.image"
-                  :alt="product.description"
-                  :class="card - img - top"
-                  style="padding: 0.6rem; justify-content: center"
-                  height="450"
-                />
+        <div class="container-fluid">
+          <div class="row gap-3 justify-content-center" v-if="products">
+            <div v-for="product of products" :key="product.id" class="col-12 col-sm-6 col-md-3 col-lg-${product.size} my-4">
+              <div style="width:100%];height:100%;" class="card">
+                <img :src="product. prodUrl" class="card-img-top" style="padding: 0.6rem;" height="390">
                 <div class="card-body">
-                  <h1 class="card-title">{{ product.name }}</h1>
-                  <p class="card-text">{{ product.description }}</p>
-                  <p class="card-text">{{ product.price }}</p>
-                  <button
-                    class="btn btn-product"
-                    onclick="addToCart({{product.id}})"
-                  >
-                    Buy Now
-                  </button>
+                  <h5 class="card-title">{{ product.prodName}}</h5>
+                  <p class="card-text">{{ product.category}}</p>
+                  <p class="card-text">{{ product.amount }}</p>
+                  <button class="btn btn-product" @click="addToCart(product.id)">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -191,15 +179,59 @@ export default {
 </script>
 
 <style scoped>
+
+
+/* Card */
+
+.cards {
+  border: 2px solid black;
+}
+/* end */
+
+.hijab img {
+  width: 18rem;
+  height: 22rem;
+}
+.card-text {
+  margin-left: 20px;
+}
+.card-title {
+  margin-left: 10px;
+}
+
+
+
+.btn-product {
+  box-shadow: 0 0 15px#FFFCF2 !important;
+  background-color: #eb5e28 !important;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: white !important;
+}
+
+.btn-primary{
+  box-shadow: 0 0 15px#FFFCF2 !important;
+  background-color: #eb5e28 !important;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: white !important;
+}
+.btn-product:hover {
+  box-shadow: 4px 4px 10px #ccc5b9, -4px -4px 10px#CCC5B9 !important;
+}
+/* end of card */
+
+
+
 svg {
- width: 3.25em;
+ width: 2.10em;
  transform-origin: center;
  animation: rotate4 2s linear infinite;
 }
 
 circle {
  fill: none;
- stroke: hsl(214, 97%, 59%);
+ stroke: hsl(197, 75%, 49%);
  stroke-width: 2;
  stroke-dasharray: 1, 200;
  stroke-dashoffset: 0;
