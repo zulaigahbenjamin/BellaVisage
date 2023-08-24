@@ -1,6 +1,6 @@
 // import express
 import express from "express";
-import { showUsers, showUserById, createUser, updateUser,deleteUser } from "../controllers/User.js";
+import { showUsers, showUserById, createUser, updateUser,deleteUser } from "../config/database.js";
 
 
   
