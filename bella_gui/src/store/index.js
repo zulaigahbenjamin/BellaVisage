@@ -3,13 +3,12 @@ import { createStore } from 'vuex';
 const miniUrl = 'https://zulaigahsapi.onrender.com/';
 export default createStore({
   state: {
-    products: null,
-    product: null,
     users: null,
     user: null,
-    token: null,
-    msg: null,
-    chosenProduct: null
+    products: null,
+    product: null,
+    showSpinner: true,
+    message: null,
   },
   mutations: {
     SET_PRODUCTS(state, products) {
@@ -27,6 +26,9 @@ export default createStore({
     setMsg(state, msg) {
       state.msg = msg;
     },
+    setSpinner(state, products) {
+      state.showSpinner = products;
+    },
 
 
   },
@@ -40,8 +42,6 @@ export default createStore({
         alert(error.message);
       }
     },
-  },
-  actions: {
     async fetchProduct(context) {
       try {
         let response = await fetch(`${miniUrl}products`);
@@ -51,13 +51,36 @@ export default createStore({
         alert(error.message);
       }
     },
-    async fetchProducts(context) {
+  
+    getUsers: async (context) => {
       try {
-        let response = await fetch(`${miniUrl}products`);
-        let { results } = await response.json();
-        context.commit("SET_PRODUCT", results);
+        const res = await fetch(`${miniUrl}users`);
+        if (!res.ok) {
+          throw new Error("Failed to fetch users");
+        }
+        const users = await res.json();
+        context.commit("setUsers", users);
+        context.commit("setSpinner", false);
       } catch (error) {
-        alert(error.message);
+        context.commit("setSpinner", true);
+        console.error("Error fetching users:", error);
+      }
+    },
+
+    async getUser(context, id) {
+      try {
+        const res = await fetch(`${miniUrl}users/${id}`);
+        if (!res.ok) {
+          throw new Error("Failed to fetch user by ID");
+        }
+        const { results, err } = await res.json();
+        if (results) {
+          context.commit("setUsers", results);
+        } else {
+          context.commit("setMessage", err);
+        }
+      } catch (error) {
+        console.error("Error fetching user by ID:", error);
       }
     },
   },

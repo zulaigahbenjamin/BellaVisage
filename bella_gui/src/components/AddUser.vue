@@ -1,30 +1,124 @@
-script>
+<template>
+  <div>
+    <div class="container flex-container">
+      <label> First Name</label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        name="firstName"
+        v-model="firstName"
+      />
+      <label>Last Name</label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        name="lastName"
+        v-model="lastName"
+      />
+      <label>Age</label>
+
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        name="userAge"
+        v-model="userAge"
+      />
+
+      <label>Gender</label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        name="Gender"
+        v-model="Gender"
+      />
+      <label>Role</label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        name="userRole"
+        v-model="userRole"
+      />
+      <label>Email address</label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        name="emailAdd"
+        v-model="emailAdd"
+      />
+      <label>Password</label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        name="userPass"
+        v-model="userPass"
+      />
+      <label>Profile</label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        name="userProfile"
+        v-model="userProfile"
+      />
+
+      <button @click="addUser" class="btn-submit">Submit</button>
+    </div>
+  </div>
+</template>
+<script>
+import axios from "axios";
 export default {
   data() {
     return {
-      model: {
-        user: {
-            firstName: "",
-            lastName: "",
-            userAge: "",
-            gender:"",
-            userRole:"",
-            userPass:"",
-            userProfile:"",
-            emailAdd : ""
-        },
-      },
+      firstName: "",
+      lastName: "",
+      userAge: "",
+      Gender: "",
+      userRole: "",
+      emailAdd: "",
+      userPass: "",
+      userProfile: "",
     };
   },
   methods: {
-    registerUser() {
-      console.log("reached");
-      this.$store.dispatch("registerUser", this.model.user);
-      console.log("Dispatched registerUser action")
-      setTimeout(() => {
-        location.reload();
-      }, 500);
+    async addUser() {
+      try {
+        await axios.post("https://nodejseomp.onrender.com/users/", {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          userAge: this.userAge,
+          Gender: this.Gender,
+          userRole: this.userRole,
+          emailAdd: this.emailAdd,
+          userPass: this.userPass,
+          userProfile: this.userProfile,
+        });
+
+        this.firstName = "";
+        this.lastName = "";
+        this.userAge = "";
+        this.Gender = "";
+        this.userRole = "";
+        this.emailAdd = "";
+        this.userPass = "";
+        this.userProfile = "";
+
+        this.$router.push("/admin");
+      } catch (err) {
+        alert(err);
+      }
     },
   },
 };
 </script>
+
+<style scoped;>
+
+</style>

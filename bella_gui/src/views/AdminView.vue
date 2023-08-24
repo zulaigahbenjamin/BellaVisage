@@ -12,7 +12,7 @@
             <th scope="col">Category</th>
             <th scope="col">Image</th>
             <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+           <th scope="co;">Delete</th>
           </tr>
         </thead>
         <tbody v-for="product in products" :key="product.prodId">
@@ -31,7 +31,7 @@
             </td>
             <td>
               <button
-                @click="editProduct(item)"
+                @click="editProduct(product)"
                 class="btn btn-dark"
                 data-bs-toggle=""
                 data-bs-target="#exampleModal"
@@ -42,7 +42,7 @@
             </td>
             <td>
               <button
-                @click="deleteProduct(item.prodID)"
+                @click="deleteProduct(product.prodId)"
                 class="btn btn-dark"
                 data-bs-toggle=""
                 data-bs-target="#exampleModal"
@@ -71,19 +71,19 @@
               <th scope="col">Delete</th>
             </tr>
           </thead>
-          <tbody v-for="item in users" :key="item.userID">
+          <tbody v-for="user in users" :key="user.userId">
             <tr>
-              <th scope="row">{{ item.userID }}</th>
-              <td>{{ item.firstName }}</td>
-              <td>{{ item.lastName }}</td>
-              <td>{{ item.userAge }}</td>
-              <td>{{ item.Gender }}</td>
-              <td>{{ item.userRole }}</td>
-              <td>{{ item.emailAdd }}</td>
+              <th scope="row">{{ user.userId}}</th>
+              <td>{{ user.firstName }}</td>
+              <td>{{ user.lastName }}</td>
+              <td>{{ user.userAge }}</td>
+              <td>{{ user.Gender }}</td>
+              <td>{{ user.userRole }}</td>
+              <td>{{ user.emailAdd }}</td>
               <td>
                 <img
-                  :src="item.userProfile"
-                  :alt="item.firstName"
+                  :src="user.userProfile"
+                  :alt="user.firstName"
                   style="width: 5rem"
                 />
               </td>
@@ -117,89 +117,53 @@
       <Spinner/>
     </div>
   </div>
+  <AddProducts/>
+  <UpdateProducts/>
+  <UpdateUser/>
+  <AddUser/>
 </template>
 
-<!-- <script>
-
- // import axios from "axios"
- export default {
-   
-   methods: {
-     async editProduct(productId){
-     },
-     async deleteProduct(prodId){
-       this.$store.dispatch('delFunction', prodId)
-     },
-
-        fetchProduct() {
-            axios
-                .get('https://zulaigahsapi.onrender.com/products')
-                .then(response => {
-                    // Commit a mutation to update the state with the fetched data
-                    this.$store.commit('SET_PRODUCT', response.data);
-                })
-                .catch(error => {
-                    console.error('Error fetching product:', error);
-                });
-        }
-   },
-   computed:{
-     products(){
-       return this.$store.state.product
-     },
-     
-     users() {
-       return this.$store.state.users
-     }
-   },
-   mounted(){
-     this.$store.dispatch('fetchProducts')
-     this.$store.dispatch('fetchUsers')
-   }
- }
- </script> -->
-
 <script>
-//  import Spinner from "@/components/SpinnerComponent.vue"
-// import axios from "axios"
+import axios from 'axios';
+import AddProducts from "@/components/AddProduct.vue";
+import AddUser from "@/components/AddUser.vue";
+import UpdateProduct from "@/components/UpdateProduct.vue";
+import UpdateUser from "@/components/UpdateUser.vue";
 export default {
-     components:{
-       Spinner
-     },
-  methods: {
-    async editProduct(product) {},
-    async deleteProduct(prodId) {
-      this.$store.dispatch("delFunction", prodId);
+  components: {
+    UpdateUser,
+    AddProducts,
+    AddUser,
+    UpdateProduct
+  },
+  computed: {
+    users() {
+      return this.$store.state.users;
     },
-    async deleteUser(userId) {
-      this.$store.dispatch("delFunction", userId);
+    product() {
+      return this.$store.state.product;
     },
-    fetchProduct() {
-      axios
-        .get("https://zulaigahsapi.onrender.com/products")
-        .then((response) => {
-          this.$store.commit("SET_PRODUCT", response.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching product:", error);
-        });
+    products(){
+      return this.$store.state.products
     },
+    user(){
+      return this.$store.state.user
+    }
   },
   mounted() {
     this.$store.dispatch('fetchProducts');
     this.$store.dispatch("fetchUsers");
   },
-  computed: {
-    product() {
-      return this.$store.state.product;
-    },
-    users() {
-      return this.$store.state.users;
-    },
+  methods: {
+   
+    async deleteProduct(prodId) {
+    try {
+      await axios.delete(`https://zulaigahsapi.onrender.com/products/${prodId}`);
+      this.$store.dispatch("getProducts");
+    } catch (err) {
+      alert(err);
+    }
   },
-  mounted() {
-    this.$store.dispatch("fetchProducts");
-    this.$store.dispatch("fetchUsers");
   },
 };
 </script>
