@@ -1,62 +1,53 @@
 <template>
   <div calss="banner_section">
-      <div v-if="product" class="container products">
+      <div v-if="product" class="container products"><div>{{ product.size }}</div>
           <div class="row d-flex justify-content-center">
-              <img :src="product.image_url" :alt="product.description" :class="pic">
-              <h1>{{ product.name }}</h1>
-              <div>{{ product.id }}</div>
+              <img :src="product.prodUrl" :alt="product.category" :class="pic">
+              <h1 class="card-text">{{ product.prodName }}</h1>
+              <div class="card-text">{{ product.amount }}</div>
+              <div class="card-text">{{ product.quantity }}</div>
+              <div>{{ product.prodId}}</div>
               <button>Buy Now</button>
           </div>
       </div>
 
 
   </div>
-  <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-${product.size} my-4">
-      <div class="card">
-          <div v-if="product" class="container products">
-              <img :src="product.image_url" :alt="product.description" :class="card - img - top" style="padding: 0.6rem;"
-                  height="450">
-              <div class="card-body">
-                  <h5 class="card-title">R&G</h5>
-                  <h1>{{ product.name }}</h1>
-                  <p class="card-text">{{ product.description }}</p>
-                  <p class="card-text">{{ product.price }}</p>
-                  <button class="btn btn-product" onclick="addToCart({{product.id}})">Buy Now</button>
-              </div>
-          </div>
-      </div>
-  </div> -->
-
+ 
 </template>
 <script>
+import axios from 'axios';
 export default {
-  data() {
-    return {
-      product: null,
-    };
-  },
-  computed: {
-    products() {
-      return this.$store.state.products;
+    props: ['id'],
+    mounted() {
+        this.$store.dispatch('fetchProducts')
     },
-  },
-  mounted() {
-    this.$store.dispatch("fetchProducts");
-  },
-};
-
+    computed: {
+        product() {
+            return this.$store.state.product
+        }
+    },
+    methods: {
+        // Action to fetch product data
+        fetchProduct() {
+            axios
+                .get('https://zulaigahsapi.onrender.com/products')
+                .then(response => {
+                    // Commit a mutation to update the state with the fetched data
+                    this.$store.commit('SET_PRODUCT', response.data);
+                })
+                .catch(error => {
+                    console.error('Error fetching product:', error);
+                });
+        }
+    }
+}
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
 
-
-
-
-
-
-
-* {
+*{
 margin: 0;
 padding: 0;
 box-sizing: border-box;
@@ -142,7 +133,7 @@ bottom: -4px;
 left: 20px;
 }
 
-/* Landing Page */
+
 #hero {
 background-image: url(https://i.postimg.cc/4NZ54SSy/fashion-girl-model-wallpaper-59926-61719-hd-wallpapers.jpg);
 height: 97vh;
@@ -672,7 +663,7 @@ height: 700px;
 }
 
 
-/* Takes scroll bar away   */
+
  #productList::-webkit-scrollbar{
 width: 0px!important;}
 

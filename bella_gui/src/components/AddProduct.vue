@@ -20,9 +20,9 @@
         <div class="card">
           <img :src="product.image" class="card-img-top" style="padding: 0.6rem;" height="450">
           <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.desc }}</p>
-            <p class="card-text">{{ product.price }}</p>
+            <h5 class="card-title">{{ product.prodName }}</h5>
+            <p class="card-text">{{ product.category }}</p>
+            <p class="card-text">{{ product.amount }}</p>
             <button class="btn btn-product" @click="addToCart(product.id)">Buy Now</button>
           </div>
          

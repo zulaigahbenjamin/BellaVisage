@@ -137,7 +137,7 @@
         <div class="container-fluid">
           <div class="row gap-3 justify-content-center" v-if="products">
             <div v-for="product of products" :key="product.id" class="col-12 col-sm-6 col-md-3 col-lg-${product.size} my-4">
-              <div style="width:100%];height:100%;" class="card">
+              <div style="width:100%;height:100%;" class="card">
                 <img :src="product. prodUrl" class="card-img-top" style="padding: 0.6rem;" height="390">
                 <div class="card-body">
                   <h5 class="card-title">{{ product.prodName}}</h5>
@@ -161,31 +161,21 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
-    props: ['id'],
-    mounted() {
-        this.$store.dispatch('fetchProducts')
+    data() {
+        return {
+            product: null
+        }
     },
     computed: {
-        product() {
-            return this.$store.state.product
-        }
+        products() {
+            return this.$store.state.products;
+        },
     },
-    methods: {
-        // Action to fetch product data
-        fetchProduct() {
-            axios.get('https://zulaigahsapi.onrender.com/products')
-                .then(response => {
-                    // Commit a mutation to update the state with the fetched data
-                    this.$store.commit('SET_PRODUCT', response.data);
-                })
-                .catch(error => {
-                    console.error('Error fetching product:', error);
-                });
-        }
-    }
-}
+    mounted() {
+        this.$store.dispatch('fetchProducts');
+    },
+};
 </script>
 
 <style scoped>
