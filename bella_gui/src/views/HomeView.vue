@@ -490,6 +490,7 @@ export default {
   }
   .testi-review {
     font-size: 21px !important;
+    
   }
 
   .stars {

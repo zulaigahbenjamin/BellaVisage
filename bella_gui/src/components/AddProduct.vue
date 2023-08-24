@@ -35,20 +35,28 @@
   </template>
 <script>
 export default {
-    props: ["product"],
-    data() {
-        return {
-            product: null
-        }
-    },
-    computed: {
-        products() {
-            return this.$store.state.products;
+  data() {
+    return {
+      model: {
+        product: {
+          prodName: "",
+          quantity: "",
+          amount: "",
+          category: "",
+          prodUrl: "",
         },
+      },
+    };
+  },
+  methods: {
+    addProduct() {
+      console.log("reached");
+      this.$store.dispatch("addProduct", this.model.product);
+      setTimeout(() => {
+        location.reload();
+      }, 500);
     },
-    mounted() {
-        this.$store.dispatch('fetchProducts');
-    }
+  },
 };
 </script>
 <style scoped>

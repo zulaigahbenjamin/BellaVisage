@@ -150,9 +150,7 @@
           </div>
           <div v-else>
             Loading...
-            <svg viewBox="25 25 50 50">
-              <circle r="20" cy="50" cx="50"></circle>
-            </svg>
+           <SpinnerComp/>
           </div>
         </div>
       </div>
@@ -161,6 +159,7 @@
 </template>
 
 <script>
+import SpinnerComp from '../components/SpinnerComp.vue';
 export default {
     data() {
         return {
@@ -175,6 +174,9 @@ export default {
     mounted() {
         this.$store.dispatch('fetchProducts');
     },
+    components: {
+    SpinnerComp
+  }
 };
 </script>
 
