@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <section id="hero">
-      <a class="anchor-button" href="#"
+      <a class="anchor-button" href="./Products.vue"
         ><button id="shop"
           style="
             background-color: #d78976 !important;
@@ -9,6 +9,7 @@
             padding: 10px !important;
             align-items: center !important;
             text-align: center !important;
+            color: white !important;
           "
           class="btn btn p-2 px-4"
         >
@@ -54,33 +55,33 @@
     <div class="category-box">
       <div class="box woman-box">
         <div class="box-content b2">
-          <h3>FACIAL SKIN CARE</h3>
-          <label>FOR DRY SKIN</label>
-          <a class="feature-btn" href="/html/product.html">Go Here</a>
+          <h3 class="prod-shop">FACIAL SKIN CARE</h3>
+          <label class="prod-shop">FOR DRY SKIN</label>
+          <a style="color: greenyellow; background-color: white;" class="feature-btn" href="./Products.vue">Go Here</a>
         </div>
         <img src="https://i.postimg.cc/J0P0zZQB/Prods-1.jpg" loading="lazy" class="image-feature">
       </div>
       <div class="box man-box">
         <div class="box-content b2">
-          <h3 style="color: white;">BODY SKIN CARE</h3>
-          <label style="color: white;">FOR OILY SKIN</label>
-          <a style="background-color: white;color: rgb(132, 132, 224);" class="feature-btn" href="/html/product.html">Go Here</a>
+          <h3 class="prod-shop" style="color: white;">BODY SKIN CARE</h3>
+          <label class="prod-shop" style="color: white;">FOR OILY SKIN</label>
+          <a style="background-color: white;color: rgb(132, 132, 224);" class="feature-btn" href="./Products.vue">Go Here</a>
         </div>
         <img src="https://i.postimg.cc/28LN6nTR/Prod-2.jpg" loading="lazy" class="image-feature">
       </div>
       <div class="box man-box">
         <div class="box-content b2">
-          <h3 style="color:#eb5e28 ;">FOOT SKIN CARE</h3>
-          <label style="color:#eb5e28 ;">COMBINATION SKIN</label>
-          <a style="background-color:white ; color: #eb5e28;" class="feature-btn" href="/html/product.html">Go Here</a>
+          <h3 class="prod-shop" style="color:#eb5e28 ;">FOOT SKIN CARE</h3>
+          <label class="prod-shop" style="color:#eb5e28 ;">COMBINATION SKIN</label>
+          <a style="background-color:white ; color: #eb5e28;" class="feature-btn" href="./Products.vue">Go Here</a>
         </div>
         <img src="https://i.postimg.cc/dtCYgBMS/K-images.jpg" loading="lazy" class="image-feature">
       </div>
       <div class="box man-box">
         <div class="box-content b2">
-          <h3 style="color: #3f9bd4;">FOOT SKIN CARE</h3>
-          <label style="color: #3f9bd4;">COMBINATION SKIN</label>
-          <a style="background-color: white;color: #3f9bd4;" class="feature-btn" href="/html/product.html">Go Here</a>
+          <h3 class="prod-shop" style="color: #3f9bd4;">FOOT SKIN CARE</h3>
+          <label class="prod-shop" style="color: #3f9bd4;">COMBINATION SKIN</label>
+          <a style="background-color: white;color: #3f9bd4;" class="feature-btn" href="./Products.vue">Go Here</a>
         </div>
         <img src="https://i.postimg.cc/Hs8YdmMz/k-image-3.jpg" loading="lazy" class="image-feature">
       </div>
@@ -247,11 +248,11 @@
       >
         <h2
           class="testi-review"
-          style="margin-top: 5rem; margin-bottom: 8px !important"
+          style="margin-top: 5rem; text-align: center; margin-bottom: 8px !important"
         >
           REAL PEOPLE, REAL REVIEWS
         </h2>
-        <p class="stars" style="font-size: 40px; color: gold">
+        <p class="stars" style="font-size: 40px;text-align: center; color: gold">
           &#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
         </p>
 
@@ -301,7 +302,7 @@
               ashy elbows dry finger nails, fruity buns with a bit of a itch and
               this serum does a perfect job of deep hydration on my skin. Feels
               thick, smooth. I highly recommend!!
-              <span style="margin: 4rem">Customer</span>
+              <span class="customer-fam" style="margin: 4rem">Customer</span>
             </p>
           </div>
           <div class="carousel-item">
@@ -321,7 +322,7 @@
               carry more brands than other Korean skincare online stores.
               Products are well-described and I love the blogs too! Delivery is
               fast. I most definitely shop here again.
-              <span style="margin: 4rem">Customer</span>
+              <span class="customer-fam" style="margin: 4rem">Customer</span>
             </p>
           </div>
           <div class="carousel-item">
@@ -340,7 +341,7 @@
               Delivery was very quick and was pleasantly surprised at the
               generosity of samples. Will definitely return to order more. This
               products leave my skin even more radiant.
-              <span style="margin: 4rem">Customer</span>
+              <span class="customer-fam" style="margin: 4rem">Customer</span>
             </p>
           </div>
           <div class="carousel-item">
@@ -359,7 +360,7 @@
               process, and loved the many lovely free samples that came along
               with my purchases. Will definitely be using Skin Theory again for
               my next k-beauty fix! I am just amazed overall!
-              <span style="margin: 4rem">Customer</span>
+              <span class="customer-fam" style="margin: 4rem">Customer</span>
             </p>
           </div>
         </div>
@@ -437,7 +438,7 @@ export default {
     margin: 0px !important;
    margin: auto !important;
    position: relative;
-    bottom: 94px;
+    bottom: 94px !important;
     top: auto;
   }
 }
@@ -457,9 +458,10 @@ export default {
    margin: 0px !important;
    margin: auto !important;
    position: relative;
-   top: 17.6rem;
+   top: 24.2rem;
    
   }
+  
 }
 
 @media screen and (max-width: 300px) {
@@ -468,6 +470,18 @@ export default {
     font-size: 15px;
     padding: 0% !important;
     margin: 0% !important;
+  }
+  .prod-shop{
+   margin-left: 39px;
+    
+  }
+  .feature-btn{
+    margin-left: 95px !important;
+  }
+  .box-content{
+    margin: auto !important;
+   
+
   }
 }
 
@@ -521,13 +535,35 @@ export default {
   margin: 0px !important;
    margin: auto !important;
    position: relative;
-   top: 20.4rem;
+   top: 26.4rem;
 }
 .btn {
   color: white;
 }
 
 /* Home CSS */
+
+
+.box{
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
+  transition: 1s;
+  
+}
+
+.box:hover{
+transform: scale(1.1);
+z-index: 2;
+}
+
+.line-heading{
+  text-align: center;
+}
+
+.customer-fam{
+margin: 15rem !important;
+margin-top: 10rem !important;
+}
+
 .image-feature{
   width: 100% !important;
   height: 300px !important;
@@ -649,12 +685,12 @@ nav {
     float: left;
     padding-left: 150px;
     font-size: 23px !important;
-    margin-top: 100px !important;
+    
   }
   .category-box label {
     float: left;
     padding-left: 150px;
-    font-size: 25px !important;
+    font-size: 20px !important;
   }
   .feature-btn {
     padding-top: 90px;
@@ -758,7 +794,7 @@ nav {
   padding: 4px 10px !important;
   font-size: 14px;
   border-radius: 25px;
-  background: #faaa94;
+  background: white;
   transition: all 0.19s ease-in;
   color: white;
 }
@@ -994,7 +1030,7 @@ form {
   position: absolute;
   display: block;
   height: 4px;
-  width: 18%;
+  width: 13%;
   position: relative;
 }
 

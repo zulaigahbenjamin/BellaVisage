@@ -54,16 +54,16 @@
               𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐬
             </h6>
             <p>
-              <a href="#" class="text-reset">Korean Skin Care</a>
+              <a href="../views/Products.vue" class="text-reset">Korean Skin Care</a>
             </p>
             <p>
-              <a href="#" class="text-reset">Facial Skin Care</a>
+              <a href="../views/Products.vue" class="text-reset">Facial Skin Care</a>
             </p>
             <p>
-              <a href="#" class="text-reset">Glow Skin Care</a>
+              <a href="../views/Products.vue" class="text-reset">Glow Skin Care</a>
             </p>
             <p>
-              <a href="#" class="text-reset">Body Skin Care</a>
+              <a href="../views/Products.vue" class="text-reset">Body Skin Care</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -75,16 +75,16 @@
               𝐔𝐬𝐞𝐟𝐮𝐥 𝐥𝐢𝐧𝐤𝐬
             </h6>
             <p>
-              <a href="/index.html" class="text-reset">Home</a>
+              <a href="../views/HomeView.vue" class="text-reset">Home</a>
             </p>
             <p>
-              <a href="/html/about.html" class="text-reset">About Us</a>
+              <a href="../views/AboutView.vue" class="text-reset">About Us</a>
             </p>
             <p>
-              <a href="/product.html" class="text-reset">Product</a>
+              <a href="../views/Products.vue" class="text-reset">Product</a>
             </p>
             <p>
-                <a href="/html/contact.html" class="text-reset">Contact</a>
+                <a href="../views/ContactView.vue" class="text-reset">Contact</a>
               </p>
           </div>
           <!-- Grid column -->
@@ -129,7 +129,11 @@ export default {
   text-decoration: none !important;
   color: #484848 !important;
 }
+.text-reset:hover{
+  color: black !important;
+  
 
+}
 .text-uppercase {
   color: black !important;
 }

@@ -9,7 +9,9 @@ export default createStore({
     user: null,
     token: null,
     msg: null,
-    chosenProduct: null
+    chosenProduct: null,
+    // new stuff
+    // selectedProduct: null,
   },
   mutations: {
     SET_PRODUCTS(state, products) {
@@ -28,6 +30,10 @@ export default createStore({
       state.msg = msg;
     },
 
+    // new stuff
+    // SET_SELECTED_PRODUCT(state, product) {
+    //   state.selectedProduct = product;
+    // },
 
   },
   actions: {
@@ -60,6 +66,16 @@ export default createStore({
         alert(error.message);
       }
     },
+    // new stuff
+    // async fetchProducts(context) {
+    //   try {
+    //     openProductModal(context, product);{
+    //       context.commit('SET_SELECTED_PRODUCT', product);
+    //     }
+    //   } catch (error) {
+    //     alert(error.message);
+    //   }
+    // },
   },
   modules: {},
 });

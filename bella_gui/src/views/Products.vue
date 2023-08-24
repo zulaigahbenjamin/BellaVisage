@@ -79,57 +79,54 @@
       <!-- End of slideshow -->
 
       <!-- Card section -->
-      <h2
-        class="text-caro"
-        style="
-          text-align: center;
-          letter-spacing: 8px;
-          margin: 2rem;
-          color: black;
-        "
+      <h2 class="text-caro"
+        
       >
         KOREAN SKIN
       </h2>
 
       <!-- filter -->
-      <h2>Search Products</h2>
+      <h2 class="text-caro">Search Products</h2>
 
-<section id="products">
-  <form action="" class="m-auto filter-form bg-black">
-    <div class="filter-form-price filter-form-div">
-      <label for="price-range">Price:</label>
-      <select name="price-range" class="m-auto" id="price-range" onchange="filterItems()">
-      <option value="any">Any</option>
-      <option value="5000">R5000</option>
-      <option value="3000">R3000</option>
-      <option value="2000">R2000</option>
-      </select>
-    </div>
-
-    <div class="filter-form-color filter-form-div">
-      <label for="">Base-colour</label>
-      <select name="base-color" class="m-auto" id="base-color" onchange="filterItems()">
-      <option value="any">Any</option>
-      <option value="black">Black</option>
-      <option value="white">White</option>
-      <option value="cream">Cream</option>
-      <option value="purple">Purple</option>
-      <option value="brown">Brown</option>
-      </select>
-    </div>
-
-    <div class="filter-form-shoes filter-form-div">
-      <label for="shoes">Shoes</label>
-      <select name="shoes" class="m-auto" id="shoes" onchange="filterItems()">
-      <option value="any">Any</option>
-      <option value="puffy">Puffy</option>
-      <option value="pointed">Pointed</option>
-      <option value="glass">Glass</option>
+      <!-- <div class="sort-filter-container">
+  <div class="filter-container">
+    <label for="filter">Filter by:</label>
+    <select id="filter">
+      <option value="all">All Items</option>
+      <option value="category1">Category 1</option>
+      <option value="category2">Category 2</option>
+      <option value="category3">Category 3</option>
     </select>
-    </div>
+  </div>
+  <div class="sort-container">
+    <label for="sort">Sort by:</label>
+    <select id="sort">
+      <option value="relevance">Relevance</option>
+      <option value="latest">Latest</option>
+      <option value="popular">Popular</option>
+      <option value="price-low">Price Low to High</option>
+      <option value="price-high">Price High to Low</option>
+    </select>
+  </div>
+</div> -->
 
-  </form>
-</section>
+<select v-model="selectedCategory" @change="filter">
+      <option value="">All</option>
+      <!-- <option value="Necklaces">Necklaces</option> -->
+      <option v-for="category in categories" :key="category">{{ category }}</option>
+    </select>
+
+    <select v-model="sortOrder" @change="sortProducts">
+    <option value="asc">Low to High</option>
+    <option value="desc">High to Low</option>
+</select>
+
+    <div v-for="product in filteredProducts" :key="product.prodID">
+        <img :src="product.miniUrl" alt="Product Image" class="product-image" />
+        <h3>{{ product.prodName }}</h3>
+  <p>Price: R {{ product.amount }}</p>
+  <p>Quantity: {{ product.quantity }}</p>
+    </div>
 
       <!--End of filter -->
 
@@ -148,7 +145,7 @@
               </div>
             </div>
           </div>
-          <div v-else>
+          <div style="text-align:center !important; margin-top:3rem;" v-else>
             Loading...
            <SpinnerComp/>
           </div>
@@ -156,6 +153,24 @@
       </div>
     </div>
   </div>
+
+
+
+  <!-- Existing code -->
+
+  <!-- <div class="modal" v-if="selectedProduct">
+    <div class="modal-content">
+      <span class="close-modal" @click="selectedProduct = null">&times;</span>
+      <img :src="selectedProduct.prodUrl" :alt="selectedProduct.category" :class="pic">
+      <h3>{{ selectedProduct.prodName }}</h3>
+      <div>{{ selectedProduct.amount }}</div>
+      <div>{{ selectedProduct.quantity }}</div>
+      <div>{{ selectedProduct.prodId }}</div>
+      <button>Buy Now</button>
+    </div>
+  </div>
+ -->
+
 </template>
 
 <script>
@@ -163,7 +178,11 @@ import SpinnerComp from '../components/SpinnerComp.vue';
 export default {
     data() {
         return {
-            product: null
+            product: null,
+            selectedProduct: null,
+            selectedCategory: "", // Holds the selected category
+            filteredProducts: [], // Holds the filtered products
+            categories: ["Serum", "Moisturiser", "Facial Wash"],
         }
     },
     computed: {
@@ -171,6 +190,13 @@ export default {
             return this.$store.state.products;
         },
     },
+    
+    filter() {
+      this.filteredProducts = this.products.filter(product => {
+        return this.selectedCategory === "" || product.category === this.selectedCategory;
+      });
+    },
+
     mounted() {
         this.$store.dispatch('fetchProducts');
     },
@@ -182,6 +208,55 @@ export default {
 
 <style scoped>
 
+.sort-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container,
+.sort-container {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.filter-container select,
+.sort-container select {
+  margin-left: 8px;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  background-color: #555;
+  color: white;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+/* Style the select arrow */
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+/* Hover effect */
+select:hover {
+  background-color: #777;
+}
 
 /* Card */
 
@@ -746,6 +821,14 @@ form {
 }
 
 /* ProductPage */
+.text-caro{
+  text-align: center;
+  letter-spacing: 8px;
+  margin: 3rem;
+  color: black;
+}
+
+
 .btn-product {
   box-shadow: 0 0 15px grey !important;
   background-color: #ecc3b3 !important;
@@ -775,6 +858,7 @@ form {
   .d-block {
     width: 100% !important;
   }
+  
   .text-carousel {
     font-size: 18px;
   }

@@ -6,8 +6,8 @@
       <router-link to="/"
         ><img class="navbar-logo"
           src="https://i.postimg.cc/HsbqzZy5/Bv-1.png "
-          id="slideInLeft"
-          alt="Ridhaa Gabier"
+          id="fade-in"
+          alt="Bella Visage"
       /></router-link>
       <button
         class="navbar-toggler"
@@ -22,18 +22,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul id="navbar" class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li id="slideInLeft"><router-link to="/">𝐇𝐨𝐦𝐞</router-link></li>
+          <li id="fade-in"><router-link to="/">𝐇𝐨𝐦𝐞</router-link></li>
     
-          <li id="slideInLeft">
+          <li id="fade-in">
             <router-link to="/product">𝐏𝐫𝐨𝐝𝐮𝐜𝐭</router-link>
           </li>
-          <li id="slideInLeft">
+          <li id="fade-in">
             <router-link to="/about"> 𝐀𝐛𝐨𝐮𝐭</router-link>
           </li>
-          <li id="slideInLeft">
+          <li id="fade-in">
             <router-link to="/contact">𝐂𝐨𝐧𝐭𝐚𝐜𝐭</router-link>
           </li>
-          <li id="slideInLeft">
+          <li id="fade-in">
             <router-link to="/admin">𝐀𝐝𝐦𝐢𝐧</router-link>
           </li>
         </ul>
@@ -52,6 +52,21 @@ export default {
 }
 </script>
 <style scoped>
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+   
+  }
+  
+  #fade-in {
+    animation: fadeIn 2s;
+  }
+  
 
 
 

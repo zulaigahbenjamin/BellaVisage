@@ -30,7 +30,7 @@
             <div class="card border-2 mt-5 second" id="contact-box">
               <form action="https://formspree.io/f/xknayqyj" method="POST">
                 <h2
-                  id="slideInLeft"
+                  id="fade-in"
                   class="card p-1 heading-text pink-bg border-2 text-center"
                   style="border: none"
                 >
@@ -198,8 +198,8 @@
   }
   
   .hijab img {
-    width:26rem;
-    height:18rem;
+    width:30rem;
+    height:20rem;
   }
   
   .submit-btn {
@@ -253,17 +253,18 @@
     margin-top: 28px;
     line-height: 40px;
   }
-  @keyframes slideInLeft {
+  @keyframes fadeIn {
     from {
-      transform: translateX(-300px);
+      opacity: 0;
     }
     to {
-      transform: translateX(0);
+      opacity: 1;
     }
+   
   }
   
-  #slideInLeft {
-    animation: slideInLeft 1s ease-in;
+  #fade-in {
+    animation: fadeIn 2s;
   }
   
   @media (max-width: 300px) {

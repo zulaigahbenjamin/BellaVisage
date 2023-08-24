@@ -8,7 +8,7 @@
 <div class="container-about">
   <section class="about">
     <div class="about-image">
-      <img src="https://i.postimg.cc/MTdxvvm9/About-image-korean.jpg" alt="Image">
+      <img class="box" src="https://i.postimg.cc/MTdxvvm9/About-image-korean.jpg" alt="Image">
     </div>
     <div class="about-content">
       <h2>About Us</h2>
@@ -50,7 +50,16 @@ p{
 }
 }
 
+.box{
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
+  transition: 1s;
+  
+}
 
+.box:hover{
+transform: scale(1.1);
+z-index: 2;
+}
 
 * {
   margin: 0;
