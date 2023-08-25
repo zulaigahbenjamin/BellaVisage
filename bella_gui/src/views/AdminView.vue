@@ -1,11 +1,11 @@
 <template>
   <div class="about">
-    <h1 class="h1two">Admin Page:</h1>
+    <h1 class="h1two">Admin Table:</h1>
     <div class="table-responsive" style="margin-top: 1rem" v-if="users">
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col" id="display_disappear">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Quantity</th>
             <th scope="col">Amount</th>
@@ -54,7 +54,7 @@
           </tr>
         </tbody>
       </table>
-      <h1 class="h1two">Users:bust_in_silhouette:</h1>
+      <h1 class="h1two">User Table:</h1>
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -171,5 +171,41 @@ export default {
 <style>
 .h1two {
   text-align: center;
+}
+
+@media screen and (max-width: 300px){
+  .about{
+    
+    width: 100% !important;
+  }
+
+  .table-responsive{
+    width: 100%;
+  }
+  
+}
+@media screen and (max-width: 500px){
+.btn{
+  padding: 1px;
+  width: fit-content;
+  
+  font-size: 10px;
+}
+ img{
+  width: 40px !important;
+  padding: 0 ;
+  margin: 0;
+  height: 100%;
+
+}
+td{
+  padding: 0;
+  font-size: 10px;
+}
+th{
+  font-size: 8px;
+  padding: 0;
+  margin: 0;
+}
 }
 </style>

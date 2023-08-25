@@ -238,6 +238,7 @@
 
     <div
       id="carouselExampleIndicators"
+      
       class="carousel slide"
       data-bs-ride="carousel"
     >
@@ -535,7 +536,7 @@ export default {
   margin: 0px !important;
    margin: auto !important;
    position: relative;
-   top: 26.4rem;
+   top: 20.4rem;
 }
 .btn {
   color: white;
@@ -1030,7 +1031,7 @@ form {
   position: absolute;
   display: block;
   height: 4px;
-  width: 13%;
+  width: 17%;
   position: relative;
 }
 

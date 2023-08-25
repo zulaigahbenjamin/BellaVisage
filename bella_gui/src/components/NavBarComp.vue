@@ -25,7 +25,7 @@
           <li id="fade-in"><router-link to="/">𝐇𝐨𝐦𝐞</router-link></li>
     
           <li id="fade-in">
-            <router-link to="/product">𝐏𝐫𝐨𝐝𝐮𝐜𝐭</router-link>
+            <router-link to="/products">𝐏𝐫𝐨𝐝𝐮𝐜𝐭</router-link>
           </li>
           <li id="fade-in">
             <router-link to="/about"> 𝐀𝐛𝐨𝐮𝐭</router-link>

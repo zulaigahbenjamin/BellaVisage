@@ -1,51 +1,81 @@
-<template>
-  <div calss="banner_section">
-      <div v-if="product" class="container products"><div>{{ product.size }}</div>
-          <div class="row d-flex justify-content-center">
-              <img :src="product.prodUrl" :alt="product.category" :class="pic">
-              <h1 class="card-text">{{ product.prodName }}</h1>
-              <div class="card-text">{{ product.amount }}</div>
-              <div class="card-text">{{ product.quantity }}</div>
-              <div>{{ product.prodId}}</div>
-              <button>Buy Now</button>
+
+<template lang="">
+  <div>
+      <div class="container-fluid">
+    <div class="row gap-3 justify-content-center" v-if="product"  :key="product.prodId" :product="product">
+      <div  >
+        <div style="width:100%;height:100%;" class="card">
+          <img :src="product.prodUrl" class="card-img-top" style="padding: 1.6rem;" height="550">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.prodName }}</h5>
+            <p class="card-text">{{ product.category }}</p>
+            <p class="card-text">R {{ product.amount }}</p>
+           
           </div>
+        </div>
       </div>
-
-
+    </div>
+    <div style="text-align:center !important; margin-top:3rem;" v-else>
+      Loading...
+      <SpinnerComp/>
+    </div>
   </div>
- 
+  </div>
 </template>
 <script>
+import SpinnerComp from '@/components/SpinnerComp.vue';
+export default {
+  computed: {
+    product() {
+      return this.$store.state.product;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("fetchProduct", this.$route.params.id);
+  },
+  components:{SpinnerComp},
+};
+</script>
+<!-- <script>
 import axios from 'axios';
 export default {
-    props: ['id'],
+    // props: ['id'],
     mounted() {
-        this.$store.dispatch('fetchProducts')
+        this.$store.dispatch('fetchProduct', this.id)
     },
     computed: {
         product() {
             return this.$store.state.product
         }
-    },
-    methods: {
-        // Action to fetch product data
-        fetchProduct() {
-            axios
-                .get('https://zulaigahsapi.onrender.com/products')
-                .then(response => {
-                    // Commit a mutation to update the state with the fetched data
-                    this.$store.commit('SET_PRODUCT', response.data);
-                })
-                .catch(error => {
-                    console.error('Error fetching product:', error);
-                });
-        }
     }
+
+//     methods: {
+//         // Action to fetch product data
+//         fetchProduct() {
+//             axios
+//                 .get('https://zulaigahsapi.onrender.com/products')
+//                 .then(response => {
+//                     // Commit a mutation to update the state with the fetched data
+//                     this.$store.commit('SET_PRODUCT', response.data);
+//                 })
+//                 .catch(error => {
+//                     console.error('Error fetching product:', error);
+//                 });
+//         }
+//     }
 }
-</script>
+</script> -->
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
+   
+@media screen and (max-width: 300px) {
+.card-img-top {
+  height: auto;
+}
+}
+
+
 
 *{
 margin: 0;
@@ -367,9 +397,12 @@ height: 22rem;
 }
 .card-text {
 margin-left: 20px;
+text-align: center;
+font-size: 18px;
 }
 .card-title {
 margin-left: 10px;
+text-align: center;
 }
 .btn-contact {
 box-shadow: 4px 4px 10px #ccc5b9, -4px -4px 10px#FFFCF2 !important;

@@ -6,7 +6,7 @@
             <div class="card left">
               <div class="hijab">
                 <img
-                  src="https://i.postimg.cc/mZHF14HT/contact.png"
+                  src="https://i.postimg.cc/Y99XhHX3/new-face-fpor-contacr.png"
                   loading="lazy"
                   class="pfp"
                 />
@@ -198,7 +198,7 @@
   }
   
   .hijab img {
-    width:30rem;
+    width:20rem;
     height:20rem;
   }
   
