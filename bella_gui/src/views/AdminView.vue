@@ -12,7 +12,7 @@
             <th scope="col">Category</th>
             <th scope="col">Image</th>
             <th scope="col">Edit</th>
-           <th scope="co;">Delete</th>
+            <th scope="co;">Delete</th>
           </tr>
         </thead>
         <tbody v-for="product in products" :key="product.prodId">
@@ -23,38 +23,25 @@
             <td>{{ product.amount }}</td>
             <td>{{ product.category }}</td>
             <td>
-              <img
-                :src="product.prodUrl"
-                :alt="product.prodName"
-                style="width: 5rem"
-              />
+              <img :src="product.prodUrl" :alt="product.prodName" style="width: 5rem" />
             </td>
             <td>
-              <button
-                @click="editProduct(product)"
-                class="btn btn-dark"
-                data-bs-toggle=""
-                data-bs-target="#exampleModal"
-                data-bs-whatever=""
-              >
-                Edit
+              <button @click="updateProducts(product.prodId)">
+                <EditProView :product="product" />
+                update
               </button>
+
             </td>
             <td>
-              <button
-                @click="deleteProduct(product.prodId)"
-                class="btn btn-dark"
-                data-bs-toggle=""
-                data-bs-target="#exampleModal"
-                data-bs-whatever=""
-              >
+              <button @click="deleteProduct(product.prodId)" class="btn btn-dark" data-bs-toggle=""
+                data-bs-target="#exampleModal" data-bs-whatever="">
                 Delete
               </button>
             </td>
           </tr>
         </tbody>
       </table>
-      <h1 class="h1two">Users:bust_in_silhouette:</h1>
+      <h1 class="h1two">Users</h1>
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -73,7 +60,7 @@
           </thead>
           <tbody v-for="user in users" :key="user.userId">
             <tr>
-              <th scope="row">{{ user.userId}}</th>
+              <th scope="row">{{ user.userId }}</th>
               <td>{{ user.firstName }}</td>
               <td>{{ user.lastName }}</td>
               <td>{{ user.userAge }}</td>
@@ -81,30 +68,17 @@
               <td>{{ user.userRole }}</td>
               <td>{{ user.emailAdd }}</td>
               <td>
-                <img
-                  :src="user.userProfile"
-                  :alt="user.firstName"
-                  style="width: 5rem"
-                />
+                <img :src="user.userProfile" :alt="user.firstName" style="width: 5rem" />
               </td>
               <td>
-                <button
-                  class="btn btn-dark"
-                  data-bs-toggle=""
-                  data-bs-target="#exampleModal"
-                  data-bs-whatever=""
-                >
+                <button class="btn btn-dark" @click="updateUsers()" data-bs-toggle="" data-bs-target="#exampleModal"
+                  data-bs-whatever="">
                   Edit
                 </button>
               </td>
               <td>
-                <button
-                  type="button"
-                  class="btn btn-dark"
-                  data-bs-toggle=""
-                  data-bs-target="#exampleModal"
-                  data-bs-whatever=""
-                >
+                <button type="button" @click="deleteUser(user.userId)" class="btn btn-dark" data-bs-toggle=""
+                  data-bs-target="#exampleModal" data-bs-whatever="">
                   Delete
                 </button>
               </td>
@@ -114,28 +88,28 @@
       </div>
     </div>
     <div class="else" v-else>
-      <Spinner/>
+      Loading...
     </div>
   </div>
-  <AddProducts/>
-  <UpdateProducts/>
-  <UpdateUser/>
-  <AddUser/>
+  <AddProducts />
+
+  <UpdateUser />
+  <AddUser />
 </template>
 
 <script>
 import axios from 'axios';
-
+import UpdateUser from "@/components/UpdateUser.vue"
 import AddProducts from "@/components/AddProduct.vue";
 import AddUser from "@/components/AddUser.vue";
-import UpdateProducts from "@/components/UpdateProduct.vue";
-import UpdateUser from "@/components/UpdateUser.vue";
+import EditProView from '@/components/EditProView.vue'
+
 export default {
   components: {
     UpdateUser,
     AddProducts,
     AddUser,
-    UpdateProducts
+    EditProView
   },
   computed: {
     users() {
@@ -144,10 +118,10 @@ export default {
     product() {
       return this.$store.state.product;
     },
-    products(){
+    products() {
       return this.$store.state.products
     },
-    user(){
+    user() {
       return this.$store.state.user
     }
   },
@@ -156,15 +130,69 @@ export default {
     this.$store.dispatch("fetchUsers");
   },
   methods: {
-   
+    // PRODUCTS
     async deleteProduct(prodId) {
-    try {
-      await axios.delete(`https://zulaigahsapi.onrender.com/products/${prodId}`);
-      this.$store.dispatch("getProducts");
-    } catch (err) {
-      alert(err);
-    }
-  },
+      try {
+        await axios.delete(`https://zulaigahsapi.onrender.com/product/${prodId}`);
+        this.$store.dispatch("getProduct");
+      } catch (err) {
+        alert(err);
+      }
+    },
+    async deleteProducts(payload, prodId) {
+      try {
+        await axios.delete(`https://zulaigahsapi.onrender.com/products/${prodId}`, payload);
+        this.$store.dispatch("getProduct");
+      } catch (err) {
+        alert(err)
+      }
+    },
+
+    //USER ONE
+    async deleteUser(payload, userId) {
+      try {
+        await axios.delete(`https://zulaigahsapi.onrender.com/User/${userId}`, payload);
+        this.$store.dispatch("getUsers");
+      } catch (err) {
+        alert(err);
+      }
+    },
+    async deleteUser(payload, userId) {
+      try {
+        await axios.delete(`https://zulaigahsapi.onrender.com/Users/${userId}`, payload);
+        this.$store.dispatch("getUsers");
+      } catch (err) {
+        alert(err);
+      }
+    },
+    async updateProducts(payload, prodId) {
+      try {
+        const response = await axios.patch(`https://zulaigahsapi.onrender.com/products/${prodId}`, payload);
+        const productToEdit = response.data;
+        console.log("reached")
+
+
+        this.$store.commit('SET_PRODUCTS', productToEdit);
+
+      } catch (error) {
+        console.error(error);
+
+      }
+    },
+    async updateUsers() {
+      try {
+        const response = await axios.get(`https://zulaigahsapi.onrender.com/Users`);
+        const productToEdit = response.data;
+
+
+        this.$store.commit('setUsers', productToEdit);
+
+      } catch (error) {
+        console.error(error);
+
+      }
+    },
+
   },
 };
 </script>

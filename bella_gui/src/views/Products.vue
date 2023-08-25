@@ -147,7 +147,6 @@
           </div>
           <div style="text-align:center !important; margin-top:3rem;" v-else>
             Loading...
-           <SpinnerComp/>
           </div>
         </div>
       </div>
@@ -174,7 +173,7 @@
 </template>
 
 <script>
-import SpinnerComp from '../components/SpinnerComp.vue';
+
 export default {
     data() {
         return {
@@ -200,9 +199,6 @@ export default {
     mounted() {
         this.$store.dispatch('fetchProducts');
     },
-    components: {
-    SpinnerComp
-  }
 };
 </script>
 
