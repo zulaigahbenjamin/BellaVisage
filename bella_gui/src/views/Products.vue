@@ -152,7 +152,6 @@
           </div>
           <div style="text-align:center !important; margin-top:3rem;" v-else>
             Loading...
-           <SpinnerComp/>
           </div>
         </div>
       </div>
@@ -179,9 +178,13 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import PostComp from '../components/PostComp.vue';
 import FilterComp from '../components/FilterComp.vue';
 import SpinnerComp from '../components/SpinnerComp.vue';
+=======
+
+>>>>>>> 0294005e99b591f41de823103cc3717f40c52806
 export default {
   props: ["product"],
     data() {
@@ -240,11 +243,14 @@ export default {
     mounted() {
         this.$store.dispatch('fetchProducts');
     },
+<<<<<<< HEAD
     components: {
     SpinnerComp,
     FilterComp,
     PostComp
   }
+=======
+>>>>>>> 0294005e99b591f41de823103cc3717f40c52806
 };
 </script>
 

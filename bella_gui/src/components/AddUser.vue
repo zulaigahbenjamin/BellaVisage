@@ -2,71 +2,23 @@
   <div>
     <div class="container flex-container">
       <label> First Name</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="firstName"
-        v-model="firstName"
-      />
+      <input type="text" autocomplete="off" required name="firstName" v-model="model.users.firstName" />
       <label>Last Name</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="lastName"
-        v-model="lastName"
-      />
+      <input type="text" autocomplete="off" required name="lastName" v-model="model.users.lastName" />
       <label>Age</label>
 
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="userAge"
-        v-model="userAge"
-      />
+      <input type="text" autocomplete="off" required name="userAge" v-model="model.users.userAge" />
 
       <label>Gender</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="Gender"
-        v-model="Gender"
-      />
+      <input type="text" autocomplete="off" required name="Gender" v-model="model.users.Gender" />
       <label>Role</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="userRole"
-        v-model="userRole"
-      />
+      <input type="text" autocomplete="off" required name="userRole" v-model="model.users.userRole" />
       <label>Email address</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="emailAdd"
-        v-model="emailAdd"
-      />
+      <input type="text" autocomplete="off" required name="emailAdd" v-model="model.users.emailAdd" />
       <label>Password</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="userPass"
-        v-model="userPass"
-      />
+      <input type="text" autocomplete="off" required name="userPass" v-model="model.users.userPass" />
       <label>Profile</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="userProfile"
-        v-model="userProfile"
-      />
+      <input type="text" autocomplete="off" required name="userProfile" v-model="model.users.userProfile" />
 
       <button @click="addUser" class="btn-submit">Submit</button>
     </div>
@@ -77,48 +29,38 @@ import axios from "axios";
 export default {
   data() {
     return {
-      firstName: "",
-      lastName: "",
-      userAge: "",
-      Gender: "",
-      userRole: "",
-      emailAdd: "",
-      userPass: "",
-      userProfile: "",
+      model: {
+        users: {
+          firstName: "",
+          lastName: "",
+          userAge: "",
+          Gender: "",
+          userRole: "",
+          emailAdd: "",
+          userPass: "",
+          userProfile: "",
+        }
+      }
+
     };
   },
   methods: {
-    async addUser() {
-      try {
-        await axios.post("https://nodejseomp.onrender.com/users/", {
-          firstName: this.firstName,
-          lastName: this.lastName,
-          userAge: this.userAge,
-          Gender: this.Gender,
-          userRole: this.userRole,
-          emailAdd: this.emailAdd,
-          userPass: this.userPass,
-          userProfile: this.userProfile,
+    addUser() {
+      axios.post("https://zulaigahsapi.onrender.com/user", this.model.users)
+        .then(response => {
+          console.log("User added:", response.data);
+
+          // Emit an event to notify parent component to close the modal
+          this.$emit('ToggleModal');
+        })
+        .catch(error => {
+          console.error("Error adding user:", error);
+          alert("An error occurred while adding the user.");
+          
         });
-
-        this.firstName = "";
-        this.lastName = "";
-        this.userAge = "";
-        this.Gender = "";
-        this.userRole = "";
-        this.emailAdd = "";
-        this.userPass = "";
-        this.userProfile = "";
-
-        this.$router.push("/admin");
-      } catch (err) {
-        alert(err);
-      }
     },
-  },
-};
+  }
+  };
 </script>
 
-<style scoped;>
-
-</style>
+<style scoped;></style>

@@ -5,6 +5,7 @@ export default createStore({
   state: {
     users: null,
     user: null,
+<<<<<<< HEAD
 
     token: null,
     msg: null,
@@ -12,13 +13,19 @@ export default createStore({
     // new stuff
     // selectedProduct: null,
 
+=======
+    token: null,
+    msg: null,
+>>>>>>> 0294005e99b591f41de823103cc3717f40c52806
     products: null,
     product: null,
-    showSpinner: true,
     message: null,
+<<<<<<< HEAD
     properties: null,
     property: null,
     asc: true,
+=======
+>>>>>>> 0294005e99b591f41de823103cc3717f40c52806
 
   },
   mutations: {
@@ -31,11 +38,12 @@ export default createStore({
     setUsers(state, users) {
       state.users = users;
     },
-        setToken(state, token) {
+      setToken(state, token) {
       state.token = token;
     },
     setMsg(state, msg) {
       state.msg = msg;
+<<<<<<< HEAD
     },
     setSpinner(state, products) {
       state.showSpinner = products;
@@ -49,6 +57,9 @@ export default createStore({
       }
       state.asc = !state.asc;
     },
+=======
+    }
+>>>>>>> 0294005e99b591f41de823103cc3717f40c52806
 
     // new stuff
     // SET_SELECTED_PRODUCT(state, product) {
@@ -66,57 +77,28 @@ export default createStore({
         alert(error.message);
       }
     },
+<<<<<<< HEAD
     async fetchProduct(context, id) {
       try {
         let response = await fetch(`${miniUrl}products/${id}`);
         let results = await response.json();
         context.commit("SET_PRODUCT", results);
+=======
+
+    async fetchUsers(context) {
+      try {
+        let response = await fetch(`${miniUrl}users`);
+        let { results } = await response.json();
+        context.commit("setUsers", results);
+>>>>>>> 0294005e99b591f41de823103cc3717f40c52806
       } catch (error) {
         alert(error.message);
       }
     },
-  
-    getUsers: async (context) => {
-      try {
-        const res = await fetch(`${miniUrl}users`);
-        if (!res.ok) {
-          throw new Error("Failed to fetch users");
-        }
-        const users = await res.json();
-        context.commit("setUsers", users);
-        context.commit("setSpinner", false);
-      } catch (error) {
-        context.commit("setSpinner", true);
-        console.error("Error fetching users:", error);
-      }
-    },
 
-    async getUser(context, id) {
-      try {
-        const res = await fetch(`${miniUrl}users/${id}`);
-        if (!res.ok) {
-          throw new Error("Failed to fetch user by ID");
-        }
-        const { results, err } = await res.json();
-        if (results) {
-          context.commit("setUsers", results);
-        } else {
-          context.commit("setMessage", err);
-        }
-      } catch (error) {
-        console.error("Error fetching user by ID:", error);
-      }
-    },
-    // new stuff
-    // async fetchProducts(context) {
-    //   try {
-    //     openProductModal(context, product);{
-    //       context.commit('SET_SELECTED_PRODUCT', product);
-    //     }
-    //   } catch (error) {
-    //     alert(error.message);
-    //   }
-    // },
+
+    
+   
   },
   modules: {},
 });
