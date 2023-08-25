@@ -1,42 +1,37 @@
 // import express
 import express from "express";
+import { showUsers, showUserById, createUser, updateUser,deleteUser } from "../controllers/User.js";
+
+
   
 // import function from controller
-import { showProducts, showProductById, createProduct, updateProduct } from "../controllers/controller.js";
+import { showProducts, showProductById, createProduct, updateProduct, deleteProduct} from "../controllers/controller.js";
  
 // init express router
 const router = express.Router();
   
 // Get All Product
 router.get('/products', showProducts);
-//  const id = req.params.id
-//  const products = await getProducts(id)
-//  res.send(products);
+router.get('/users', showUsers);
+// 
   
 // Get Single Product
 router.get('/products/:id', showProductById);
-
-  
-// // Call the getProductById function to fetch the product by ID
-// getProductById(productId, (err, product) => {
-//   if (err) {
-//     console.error(err);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   } else if (!product) {
-//     res.status(404).json({ error: 'Product not found' });
-//   } else {
-//     res.json(product);
-//   }
-// });
+router.get('/users/:id', showUserById);
   
 // Create New Product
 router.post('/products', createProduct);
-  
+router.post('/users', createUser);
 // Update Product
 router.put('/products/:id', updateProduct);
-  
+router.put('/users/:id', updateUser);
+
+//patch
+router.patch('/products/:id',updateProduct);
+router.patch('/users/:id', updateUser);
 // Delete Product
 
-  
+  router.delete('/product/:id', deleteProduct);
+  router.delete('/users/:id', deleteUser);
 // export default router
 export default router;
