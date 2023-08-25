@@ -5,7 +5,6 @@ export default createStore({
   state: {
     users: null,
     user: null,
-<<<<<<< HEAD
 
     token: null,
     msg: null,
@@ -13,19 +12,12 @@ export default createStore({
     // new stuff
     // selectedProduct: null,
 
-=======
-    token: null,
-    msg: null,
->>>>>>> 0294005e99b591f41de823103cc3717f40c52806
     products: null,
     product: null,
     message: null,
-<<<<<<< HEAD
     properties: null,
     property: null,
     asc: true,
-=======
->>>>>>> 0294005e99b591f41de823103cc3717f40c52806
 
   },
   mutations: {
@@ -43,7 +35,6 @@ export default createStore({
     },
     setMsg(state, msg) {
       state.msg = msg;
-<<<<<<< HEAD
     },
     setSpinner(state, products) {
       state.showSpinner = products;
@@ -57,9 +48,6 @@ export default createStore({
       }
       state.asc = !state.asc;
     },
-=======
-    }
->>>>>>> 0294005e99b591f41de823103cc3717f40c52806
 
     // new stuff
     // SET_SELECTED_PRODUCT(state, product) {
@@ -77,20 +65,11 @@ export default createStore({
         alert(error.message);
       }
     },
-<<<<<<< HEAD
     async fetchProduct(context, id) {
       try {
         let response = await fetch(`${miniUrl}products/${id}`);
         let results = await response.json();
         context.commit("SET_PRODUCT", results);
-=======
-
-    async fetchUsers(context) {
-      try {
-        let response = await fetch(`${miniUrl}users`);
-        let { results } = await response.json();
-        context.commit("setUsers", results);
->>>>>>> 0294005e99b591f41de823103cc3717f40c52806
       } catch (error) {
         alert(error.message);
       }

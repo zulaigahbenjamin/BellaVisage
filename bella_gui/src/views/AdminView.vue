@@ -41,11 +41,7 @@
           </tr>
         </tbody>
       </table>
-<<<<<<< HEAD
       <h1 class="h1two">User Table:</h1>
-=======
-      <h1 class="h1two">Users</h1>
->>>>>>> 0294005e99b591f41de823103cc3717f40c52806
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -205,7 +201,6 @@ export default {
 .h1two {
   text-align: center;
 }
-<<<<<<< HEAD
 
 @media screen and (max-width: 300px){
   .about{
@@ -243,6 +238,3 @@ th{
 }
 }
 </style>
-=======
-</style>
->>>>>>> 0294005e99b591f41de823103cc3717f40c52806
