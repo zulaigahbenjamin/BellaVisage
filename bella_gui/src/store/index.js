@@ -5,19 +5,11 @@ export default createStore({
   state: {
     users: null,
     user: null,
-
     token: null,
     msg: null,
-    chosenProduct: null,
-    // new stuff
-    // selectedProduct: null,
-
     products: null,
     product: null,
     message: null,
-    properties: null,
-    property: null,
-    asc: true,
 
   },
   mutations: {
@@ -35,19 +27,7 @@ export default createStore({
     },
     setMsg(state, msg) {
       state.msg = msg;
-    },
-    setSpinner(state, products) {
-      state.showSpinner = products;
-    },
-    sortPropertiesByPrice: (state) => {
-      state.properties.sort((a, b) => {
-        return a.price - b.price;
-      });
-      if (!state.asc) {
-        state.properties.reverse();
-      }
-      state.asc = !state.asc;
-    },
+    }
 
     // new stuff
     // SET_SELECTED_PRODUCT(state, product) {
@@ -65,11 +45,12 @@ export default createStore({
         alert(error.message);
       }
     },
-    async fetchProduct(context, id) {
+
+    async fetchUsers(context) {
       try {
-        let response = await fetch(`${miniUrl}products/${id}`);
-        let results = await response.json();
-        context.commit("SET_PRODUCT", results);
+        let response = await fetch(`${miniUrl}users`);
+        let { results } = await response.json();
+        context.commit("setUsers", results);
       } catch (error) {
         alert(error.message);
       }

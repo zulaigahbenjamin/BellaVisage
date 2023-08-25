@@ -33,6 +33,12 @@ const routes = [
     component: () => import('../views/ContactView.vue')
   },
   {
+    path: "/admin/edit/:id",
+    name: "admin edit",
+    component: () => import("../views/EditProView.vue"),
+  
+  },
+  {
     path: '/admin',
     name: 'admin',
     component: () => import('../views/AdminView.vue')

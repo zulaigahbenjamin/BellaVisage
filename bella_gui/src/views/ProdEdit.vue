@@ -1,7 +1,6 @@
 <template>
-    <div v-if="active">
+    <div>
       <div class="container flex-container" v-if="product">
-        TEST
   
         <label for="quantity">Quantity</label>
         <input type="text" autocomplete="off" required id="prodId" name="prodId" v-model="product.quantity"
@@ -62,7 +61,7 @@
       async updateProduct() {
         try {
           await axios.put(
-            `https://zulaigahsapi.onrender.com/${this.$route.params.id}`,
+  `https://zulaigahsapi.onrender.com/${this.$route.params.id}`,
             {
               prodName: this.product.prodName,
               quantity: this.product.quantity,
@@ -98,4 +97,6 @@
   };
   </script>
   
-  <style scoped></style>
+  <style scoped>
+  
+  </style>
