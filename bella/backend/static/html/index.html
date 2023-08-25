@@ -1,26 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+td, th {
+  border: 1px solid #ffc7c7;
+  text-align: left;
+  padding: 8px;
+}
 
-    <title>CRUD FROM API</title>
+tr:nth-child(even) {
+  background-color: #ebe2ea;
+}
 
-    <link href="index.css" rel="stylesheet">
-  </head>
-  <body>
-    
-    <nav class="navbar navbar-dark bg-mynav">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">My App</a>
-      </div>
-    </nav>
+h2 {
+    color: rgb(197, 152, 97);
+}
 
-    <div class="container">
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #787272;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+  <div class="topnav">
+    <a class="https://github.com/ayesha8221/node_EOMP.git" href="">Github Repo</a>
+    <a href="https://eomp-9b235.web.app/">Firebase</a>
+    <a href="https://e-com-api-68tp.onrender.com/">Render</a>
+  </div>
+    <h2>Home</h2>
+
+    <table>
+      <tr>
+        <th>HTTP Methods</th>
+        <th>Path</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/(Home page)</td>
+        <td>Takes you to the home page</td>
+      </tr>
+    </table>
+
+    <h2>Users Table</h2>
+
+    <table>
+      <tr>
+        <th>HTTP Methods</th>
+        <th>Path</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/users</td>
+        <td>displays a list of users</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/user/:id</td>
+        <td>displays a specific user based on id</td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/user</td>
+        <td>Creates a new user</td>
+      </tr>
+      <tr>
+        <td>PATCH/PUT</td>
+        <td>/user/:id</td>
+        <td>Updates an existing user or adds a user</td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/user/:id</td>
+        <td>Deletes a user</td>
+      </tr>
+    </table>
+
+
+    <h2>Products Table</h2>
+
+    <table>
+      <tr>
+        <th>HTTP Methods</th>
+        <th>Path</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/products</td>
+        <td>Displays a list of products</td>
+      </tr>
+      <tr>
+        <td>GET </td>
+        <td>/product/:id</td>
+        <td>Displays a single user by id</td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/product</td>
+        <td>Adds a new product</td>
+      </tr>
+      <tr>
+        <td>PUT/PATCH</td>
+        <td>/product/:id</td>
+        <td>Updates a products details</td>
+      </tr>
+      <tr>
+        <td>DELETE </td>
+        <td>/product/:id</td>
+        <td>deletes a product from the database</td>
+      </tr>
+    </table>
+</body>
+</html>
       <div class="d-flex bd-highlight mb-3">
         <div class="me-auto p-2 bd-highlight"><h2>Users</div>
         <div class="p-2 bd-highlight">
