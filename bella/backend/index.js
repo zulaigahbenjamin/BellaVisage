@@ -46,6 +46,15 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'static', 'html', 'index.html'));
 });
+app.use(cors({
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 app.get('/home', (req, res) => {
   res.json({
