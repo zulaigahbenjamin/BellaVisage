@@ -1,55 +1,23 @@
 <template>
   <div>
     <div class="container flex-container">
-      <label>Name</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="prodName"
-        v-model="prodName"
-      />
-      <label>Quantity</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="quantity"
-        v-model="quantity"
-      />
-      <label>Price</label>
-      <input
-        type="number"
-        autocomplete="off"
-        required
-        name="amount"
-        v-model="amount"
-      />
-      <label>Category</label> 
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="category"
-        v-model="category"
-      />
-      <label>Image</label>
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="prodURL"
-        v-model="prodURL"
-      />
-      <label>Description</label>
+      <label>Id</label>
+      <input type="number" autocomplete="off" required name="prodId" v-model="model.product.prodId" />
 
-      <input
-        type="text"
-        autocomplete="off"
-        required
-        name="description"
-        v-model="description"
-      />
+
+      <label>Name</label>
+      <input type="text" autocomplete="off" required name="prodName" v-model="model.product.prodName" />
+      <label>Quantity</label>
+      <input type="text" autocomplete="off" required name="quantity" v-model="model.product.quantity" />
+      <label>Price</label>
+      <input type="number" autocomplete="off" required name="amount" v-model="model.product.amount" />
+      <label>Category</label>
+      <input type="text" autocomplete="off" required name="category" v-model="model.product.category" />
+      <label>Image</label>
+      <input type="text" autocomplete="off" required name="prodURL" v-model="model.product.prodUrl" />
+
+
+
 
       <button @click="addProduct" class="btn-submit">Submit</button>
     </div>
@@ -58,49 +26,37 @@
 <script>
 import axios from "axios";
 export default {
+  name: 'AddProductsComp',
+  props: ['ToggleModal'],
   data() {
     return {
-      prodName: "",
-      quantity: "",
-      amount: "",
-      category: "",
-      prodURL: "",
-      description: "",
+      model: {
+        product: {
+          prodId: '', // Make sure to include a prop for prodID or remove it if not needed
+          prodName: '',
+          quantity: '',
+          amount: '',
+          category: '', // 'category' should be 'Category' to match the v-model
+          prodUrl: '',
+        }
+      }
     };
   },
   methods: {
-    async addProduct() {
-      try {
-        await axios.post("https://zulaigahsapi.onrender.com/products", {
-          prodName: this.prodName,
-          quantity: this.quantity,
-          amount: this.amount,
-          category: this.category,
-          prodURL: this.prodURL,
-          description: this.description,
+    addProduct() {
+      axios.post("https://zulaigahsapi.onrender.com/products", this.model.product)
+        .then(response => {
+          console.log("Product added:", response.data);
+
+          // Emit an event to notify parent component to close the modal
+          this.$emit('ToggleModal');
+        })
+        .catch(error => {
+          console.error("Error adding product:", error);
+          alert("An error occurred while adding the product.");
         });
-
-        this.productName = "";
-        this.quantity = "";
-        this.amount = "";
-        this.category = "";
-        this.prodURL = "";
-        this.description = "";
-
-        this.$router.push("/admin");
-      } catch (err) {
-        alert(err);
-      }
     },
-  },
+  }
 };
 </script>
-
-<style scoped>
-
-</style>
-
-
-
-
 

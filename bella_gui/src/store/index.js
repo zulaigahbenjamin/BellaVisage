@@ -5,18 +5,18 @@ export default createStore({
   state: {
     users: null,
     user: null,
-<<<<<<< HEAD
+
     token: null,
     msg: null,
     chosenProduct: null,
     // new stuff
     // selectedProduct: null,
-=======
+
     products: null,
     product: null,
     showSpinner: true,
     message: null,
->>>>>>> 942a1ef52e2c022950b668676dcc14728a092097
+
   },
   mutations: {
     SET_PRODUCTS(state, products) {

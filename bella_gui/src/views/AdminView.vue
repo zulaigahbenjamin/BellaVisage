@@ -125,16 +125,17 @@
 
 <script>
 import axios from 'axios';
+
 import AddProducts from "@/components/AddProduct.vue";
 import AddUser from "@/components/AddUser.vue";
-import UpdateProduct from "@/components/UpdateProduct.vue";
+import UpdateProducts from "@/components/UpdateProduct.vue";
 import UpdateUser from "@/components/UpdateUser.vue";
 export default {
   components: {
     UpdateUser,
     AddProducts,
     AddUser,
-    UpdateProduct
+    UpdateProducts
   },
   computed: {
     users() {
