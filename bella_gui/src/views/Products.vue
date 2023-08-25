@@ -86,47 +86,28 @@
       </h2>
 
       <!-- filter -->
-      <!-- <h2 class="text-caro">Search Products</h2>
+      <h2 class="text-caro">Search Products</h2>
 
       <div class="sort-filter-container">
   <div class="filter-container">
     <label for="filter">Filter by:</label>
     <select id="filter">
       <option value="all">All Items</option>
-      <option value="category1">Category 1</option>
-      <option value="category2">Category 2</option>
-      <option value="category3">Category 3</option>
+      <option value="category1">Face Wash</option>
+      <option value="category2">Serum</option>
+      <option value="category3">Moisturiser</option>
     </select>
   </div>
   <div class="sort-container">
     <label for="sort">Sort by:</label>
     <select id="sort">
-      <option value="relevance">Relevance</option>
-      <option value="latest">Latest</option>
-      <option value="popular">Popular</option>
       <option value="price-low">Price Low to High</option>
       <option value="price-high">Price High to Low</option>
     </select>
   </div>
-</div>  -->
+</div> 
 
-<!-- <select v-model="selectedCategory" @change="filter">
-      <option value="">All</option> -->
-    
-      <!-- <option v-for="category in categories" :key="category">{{ category }}</option>
-    </select>
 
-    <select v-model="sortOrder" @change="sortProducts">
-    <option value="asc">Low to High</option>
-    <option value="desc">High to Low</option>
-</select>
-
-    <div v-for="product in filteredProducts" :key="product.prodID">
-        <img :src="product.miniUrl" alt="Product Image" class="product-image" />
-        <h3>{{ product.prodName }}</h3>
-        <p>Price: R {{ product.amount }}</p>
-        <p>Quantity: {{ product.quantity }}</p>
- </div> -->
 
 
 
@@ -144,7 +125,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ product.prodName}}</h5>
                   <p class="card-text">{{ product.category}}</p>
-                  <p class="card-text">{{ product.amount }}</p>
+                  <p class="card-text">R {{ product.amount }}</p>
                <router-link :to ="{name: 'product', params: {id: product.prodId}}">See more</router-link>
                 </div>
               </div>
@@ -159,21 +140,6 @@
   </div>
 
 
-
-  <!-- Existing code -->
-
-  <!-- <div class="modal" v-if="selectedProduct">
-    <div class="modal-content">
-      <span class="close-modal" @click="selectedProduct = null">&times;</span>
-      <img :src="selectedProduct.prodUrl" :alt="selectedProduct.category" :class="pic">
-      <h3>{{ selectedProduct.prodName }}</h3>
-      <div>{{ selectedProduct.amount }}</div>
-      <div>{{ selectedProduct.quantity }}</div>
-      <div>{{ selectedProduct.prodId }}</div>
-      <button>Buy Now</button>
-    </div>
-  </div>
- -->
 
 </template>
 
@@ -217,24 +183,7 @@ export default {
     },
   },
     
-//     filter() {
-//       this.filteredProducts = this.products.filter(product => {
-//         return this.selectedCategory === "" || product.category === this.selectedCategory;
-//       });
-//     },
 
-//     sortProducts() {
-//         if (this.sortOrder === "asc") {
-//             this.filteredProducts.sort((a, b) => a.amount - b.amount);
-//         } else if (this.sortOrder === "desc") {
-//             this.filteredProducts.sort((a, b) => b.amount - a.amount);
-//         }
-//       },
-
-//       watch: {
-//     selectedCategory: "filter", 
-//     sortOrder: "sortProducts" 
-// },
 
     mounted() {
         this.$store.dispatch('fetchProducts');
@@ -273,11 +222,7 @@ a:hover{
   text-align: center;
   margin-bottom: 15px;
 }
-.container-Comp{
-  display: flex;
-  margin: 20px;
-  border: solid red;
-}
+
 
 .half{
   width: 50%;
@@ -289,10 +234,10 @@ a:hover{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #333;
+  background-color: white;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 5px #ccc5b9, -2px -2px 5px#CCC5B9 !important;
 }
 
 .filter-container,
@@ -308,7 +253,7 @@ a:hover{
   padding: 6px;
   border: none;
   border-radius: 4px;
-  background-color: #555;
+  background-color: #faaa94;
   color: white;
 }
 
@@ -332,7 +277,7 @@ select {
 
 /* Hover effect */
 select:hover {
-  background-color: #777;
+  background-color: #faaa94;
 }
 
 /* Card */

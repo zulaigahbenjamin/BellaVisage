@@ -10,7 +10,7 @@
             <h5 class="card-title">{{ product.prodName }}</h5>
             <p class="card-text">{{ product.category }}</p>
             <p class="card-text">R {{ product.amount }}</p>
-           
+             <button class="" href="./Products.vue">Go back</button>
           </div>
         </div>
       </div>
@@ -71,11 +71,26 @@ export default {
    
 @media screen and (max-width: 300px) {
 .card-img-top {
-  height: auto;
-}
+  height: auto !important;
+  width: 100%;
 }
 
+}
+@media screen and (max-width: 600px){
+  .card-img-top {
+    width: 100%;
+    height: auto;
+  }
+ 
+}
 
+.card-img-top {
+ padding: 0px;
+ height: 500px;
+ width: 50%;
+ margin: auto;
+  
+}
 
 *{
 margin: 0;

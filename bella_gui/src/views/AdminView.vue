@@ -32,6 +32,7 @@
             </td>
             <td>
               <router-link
+              class="btn btn-dark"
                 :to="{ name: 'admin edit', params: { id: product.prodId } }"
               >
                 Edit
